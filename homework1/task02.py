@@ -14,13 +14,7 @@ def _check_window(x: int, y: int, z: int) -> bool:
     return (x + y) == z
 
 
-seq = []
-number = int(input('Enter number elements:'))
-for i in range(number):
-    seq.append(int(input()))
-
-
-def check_fibonacci(data: Sequence[int]) -> bool:
+def check_fibonacci(*data: Sequence[int]) -> bool:
     assert len(data) >= 3
     a, b, c = data[0], data[1], data[2]
 
