@@ -20,12 +20,13 @@ file = 'numbers_data_for_task03.txt'
 
 
 def find_maximum_and_minimum(file_name: str) -> Tuple[int, int]:
-    my_list = []
     with open(file_name) as fi:
+        value_min = int(fi.readline())
+        value_max = int(fi.readline())
         for line in fi:
             line = int(line.strip())
-            my_list.append(line)
-    return min(my_list), max(my_list)
-
-
-print(find_maximum_and_minimum(file))
+            if value_min >= line:
+                value_min = line
+            if value_max <= line:
+                value_max = line
+    return value_min, value_max
