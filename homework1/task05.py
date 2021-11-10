@@ -16,6 +16,7 @@ ki = 3
 
 
 def find_maximal_subarray_sum(nums: List[int], k: int) -> int:
+    assert len(nums) >= k
     result = nums[:k]
     while nums:
         if sum(result) <= sum(nums[:k]):
