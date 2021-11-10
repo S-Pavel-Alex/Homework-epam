@@ -33,6 +33,3 @@ def check_fibonacci(data: Sequence[int]) -> bool:
             break
         data = data[1:]
     return True
-
-
-print(check_fibonacci(seq))
