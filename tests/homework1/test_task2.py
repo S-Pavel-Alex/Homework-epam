@@ -15,4 +15,3 @@ def test_check_fib_three_elements():
     """Check how many elements
     if 3 and more True"""
     assert check_fibonacci([1, 2, 3])
-
