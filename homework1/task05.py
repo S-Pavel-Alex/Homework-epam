@@ -16,11 +16,9 @@ ki = 3
 
 
 def find_maximal_subarray_sum(nums: List[int], k: int) -> int:
-    nums.sort()
-    nums.reverse()
-    nums = nums[0:k]
-    result = sum(nums)
-    return result
-
-
-print(find_maximal_subarray_sum(nu, ki))
+    result = nums[:k]
+    while nums:
+        if sum(result) <= sum(nums[:k]):
+            result = nums[:k]
+        nums = nums[1:]
+    return sum(result)
