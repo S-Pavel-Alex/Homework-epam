@@ -22,15 +22,10 @@ def check_fibonacci(data: Sequence[int]) -> bool:
 
     while data:
         if not _check_window(a, b, c):
-            raise ValueError("Invalid data")
+            return False
         try:
             a, b, c = b, c, data[3]
         except IndexError:
             break
         data = data[1:]
     return True
-
-
-# print(check_fibonacci([5, 6, 11]))
-print(check_fibonacci([0, 0, 1]))
-print(print(check_fibonacci([0, 1, 1, 2, 3, 5, 9, 14])))
