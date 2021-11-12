@@ -16,17 +16,22 @@ with open("some_file.txt") as fi:
 """
 from typing import Tuple
 
-file = 'numbers_data_for_task03.txt'
+file1 = 'a.txt'
+file2 = 'b.txt'
+file3 = 'c.txt'
 
 
 def find_maximum_and_minimum(file_name: str) -> Tuple[int, int]:
     with open(file_name) as fi:
         value_min = int(fi.readline())
-        value_max = int(fi.readline())
+        value_max = value_min
         for line in fi:
-            line = int(line.strip())
-            if value_min >= line:
-                value_min = line
-            if value_max <= line:
-                value_max = line
+            try:
+                line = int(line.strip())
+                if value_min >= line:
+                    value_min = line
+                elif value_max <= line:
+                    value_max = line
+            except ValueError:
+                pass
     return value_min, value_max
