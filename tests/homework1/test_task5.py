@@ -7,7 +7,7 @@ def test_positive():
 
 
 def test_negative():
-    """If len < k"""
+    """If len < k."""
     assert find_maximal_subarray_sum([1], 2) == 0
 
 
