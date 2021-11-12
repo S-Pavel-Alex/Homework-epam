@@ -12,6 +12,7 @@ def test_check_sum_false():
 
 
 def test_check_fib_three_elements():
-    """Check how many elements
-    if 3 and more True"""
-    assert check_fibonacci([1, 2, 3])
+    """Three elements and more
+    First element 0
+    Second and third 1"""
+    assert check_fibonacci([0, 1, 1])

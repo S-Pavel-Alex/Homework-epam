@@ -16,6 +16,8 @@ def _check_window(x: int, y: int, z: int) -> bool:
 
 def check_fibonacci(data: Sequence[int]) -> bool:
     assert len(data) >= 3
+    assert data[0] == 0
+    assert data[1] == data[2] == 1
     a, b, c = data[0], data[1], data[2]
 
     while data:
@@ -26,5 +28,9 @@ def check_fibonacci(data: Sequence[int]) -> bool:
         except IndexError:
             break
         data = data[1:]
-    print("it's a fib sequence")
     return True
+
+
+# print(check_fibonacci([5, 6, 11]))
+print(check_fibonacci([0, 0, 1]))
+print(print(check_fibonacci([0, 1, 1, 2, 3, 5, 9, 14])))
