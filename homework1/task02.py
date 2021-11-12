@@ -11,6 +11,7 @@ from typing import Sequence
 
 
 def _check_window(x: int, y: int, z: int) -> bool:
+    """Check sum"""
     return (x + y) == z
 
 
