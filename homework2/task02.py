@@ -27,4 +27,10 @@ def major_and_minor_elem(inp: List) -> Tuple[int, int]:
             my_dict[element] += 1
         else:
             my_dict[element] = 1
-    return max(my_dict), min(my_dict)
+        max_element = max(my_dict.values())
+        min_element = min(my_dict.values())
+
+    print(min_element, max_element)
+
+
+major_and_minor_elem([0, 0, 0, 1, 2, 2])
