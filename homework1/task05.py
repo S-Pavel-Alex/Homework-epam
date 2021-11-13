@@ -1,5 +1,5 @@
 """
-Given a list of integers numbers "nums".
+Given a list of integers  numbers "nums".
 
 You need to find a sub-array with length less equal to "k", with maximal sum.
 
