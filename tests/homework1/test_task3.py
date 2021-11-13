@@ -5,7 +5,7 @@ import os
 data_folder = os.path.join(os.path.dirname(__file__), 'data')
 
 def test_answer_positive():
-    """File with two element and they 0"""
+    """File with two element and they  0"""
     file1 = os.path.join(data_folder, 'file1.txt')
     assert find_maximum_and_minimum(file1) == (0, 0)
 
