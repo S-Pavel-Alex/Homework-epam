@@ -8,26 +8,60 @@ Given a file containing text. Complete using only default collections:
 """
 from typing import List
 
-import os
-
-
-
 
 def get_longest_diverse_words(file_path: str) -> List[str]:
-
+    with open(file_path) as fi:
+        line_all = fi.read()
+        line_all = set(line_all.split())
+        new_line = sorted(line_all, key=len, reverse=True)
+        final_li = new_line[:10]
+        return final_li
 
 
 def get_rarest_char(file_path: str) -> str:
-    with open()
+    my_dir = {}
+    dir_all = {}
+    with open(file_path) as fi:
+        for line in fi:
+            for element in line:
+                if element in my_dir:
+                    my_dir[element] += 1
+                else:
+                    my_dir[element] = 1
+        for k, v in my_dir.items():
+            dir_all[v] = k
+        return dir_all[min(dir_all)]
 
 
 def count_punctuation_chars(file_path: str) -> int:
-    ...
+    my_list = []
+    punctuation_list = ['.', ',', '?', '!']
+    with open( file_path) as fi:
+        for line in fi:
+            for element in line:
+                if element in punctuation_list:
+                    my_list.append(element)
+    return len(my_list)
 
 
 def count_non_ascii_chars(file_path: str) -> int:
-    ...
+    my_list = []
+    with open(file_path) as fi:
+        for line in fi:
+            for element in line:
+                if not element.isascii():
+                    my_list.append(element)
+    return len(my_list)
+
 
 
 def get_most_common_non_ascii_char(file_path: str) -> str:
-    ...
+    my_list = []
+    my_dir = {}
+    with open(file_path) as fi:
+        line_all = fi.read()
+        line = line_all.split()
+        for element in line:
+            if not element.isascii():
+                my_list.append(element)
+        sorted(my_list, ket=len)
