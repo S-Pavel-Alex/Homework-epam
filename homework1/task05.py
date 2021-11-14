@@ -11,9 +11,6 @@ Examples:
 """
 from typing import List
 
-nu = [1, 3, -1, -3, 5, 3, 6, 7]
-ki = 3
-
 
 def find_maximal_subarray_sum(nums: List[int], k: int) -> int:
     if len(nums) >= k:
