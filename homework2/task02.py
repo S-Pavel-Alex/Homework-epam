@@ -35,8 +35,3 @@ def major_and_minor_elem(inp: List) -> Tuple[int, int]:
     count = inp.count(final_dict[key_max])
     if count >= len(inp)//2:
         return final_dict[key_max], final_dict[key_min]
-
-
-
-
-print(major_and_minor_elem([2,2,1,1,1,2,2]))
