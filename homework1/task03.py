@@ -16,10 +16,6 @@ with open("some_file.txt") as fi:
 """
 from typing import Tuple
 
-file1 = 'a.txt'
-file2 = 'b.txt'
-file3 = 'c.txt'
-
 
 def find_maximum_and_minimum(file_name: str) -> Tuple[int, int]:
     with open(file_name) as fi:
