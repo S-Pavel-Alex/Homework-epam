@@ -12,19 +12,12 @@ from typing import List
 
 def check_sum_of_four(a: List[int], b: List[int],
                       c: List[int], d: List[int]) -> int:
-    n = len(a)
+    assert 0 <= len(a) == len(b) == len(c) == len(d) <= 1000
     total = 0
-    for i in range(n):
-        for j in range(n):
-            if a[i] + b[j] == 0:
-                total += 1
-    count = 0
-    for i in range(len(c)):
-        for j in range(len(d)):
-            if c[i] + d[j] == 0:
-                count += 1
-    return total + count
-
-
-print(check_sum_of_four([2, 4, 6], [2, 4, -6],
-                        [2, -4, -6], [2, 4, -6]))
+    for i in range(len(a)):
+        for j in range(len(b)):
+            for k in range(len(c)):
+                for li in range(len(d)):
+                    if a[i] + b[j] + c[k] + d[li] == 0:
+                        total += 1
+    return total
