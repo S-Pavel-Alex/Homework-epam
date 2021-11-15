@@ -9,15 +9,17 @@ We guarantee, that all A, B, C, D have same length of N where 0 ≤ N ≤ 1000.
 """
 from typing import List
 
+from itertools import combinations
+
 
 def check_sum_of_four(a: List[int], b: List[int],
                       c: List[int], d: List[int]) -> int:
-    assert 0 <= len(a) == len(b) == len(c) == len(d) <= 1000
     total = 0
-    for i in range(len(a)):
-        for j in range(len(b)):
-            for k in range(len(c)):
-                for li in range(len(d)):
-                    if a[i] + b[j] + c[k] + d[li] == 0:
-                        total += 1
+    full = a + b + c +d
+    one_len = len(a)
+    combo = list(combinations(full, one_len))
+    finish = list(map(lambda x: list(x), combo))
+    for i in finish:
+        if sum(i) == 0:
+            total += 1
     return total
