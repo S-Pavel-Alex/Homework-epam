@@ -27,4 +27,3 @@ def combinat(*args: List[Any]) -> List[List]:
     combo = list(combinations(a, ar_len))
     finish = list(map(lambda x: list(x), combo))
     return finish
-print(combinat([1, 2], [3, 4]))
