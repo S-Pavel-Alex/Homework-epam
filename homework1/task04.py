@@ -26,6 +26,6 @@ def check_sum_of_four(a: List[int], b: List[int],
     for i in range(lenth):
         for j in range(lenth):
             negative_sum = -(c[i] + d[j])
-            if negative_sum in my_dict.keys():
+            if negative_sum in my_dict:
                 total += my_dict[negative_sum]
     return total
