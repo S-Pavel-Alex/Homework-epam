@@ -30,7 +30,6 @@ def cache(func: Callable) -> Callable:
     def wrapper(*args):
         if args not in my_dict:
             my_dict[args] = func(*args)
-        print(my_dict)
         return my_dict[args]
     return wrapper
 
@@ -43,17 +42,3 @@ def funct(a, b):
 @functools.lru_cache
 def functa(a, b):
     return (a ** b) ** 2
-
-
-some = 100, 2
-
-f1 = funct(*some)
-f2 = funct(*some)
-print(f1)
-print(f2)
-print(f1 is f2)
-f3 = functa(100, 2)
-f4 = functa(100, 2)
-print(f3)
-print(f4)
-print(f3 is f4)
