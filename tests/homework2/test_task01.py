@@ -3,12 +3,13 @@ from homework2.task01 import count_punctuation_chars, count_non_ascii_chars
 from homework2.task01 import get_most_common_non_ascii_char
 
 answer = [
-    'Br\\u00fcckenschl\\u00e4gen;', 'D\\u00e4monenschw\\u00e4rme',
-    'Meinungs\\u00e4u\\u00dferung', 'Souver\\u00e4nit\\u00e4tsan-',
-    'Werkst\\u00e4ttenlandschaft', 'Wiederbelebungs\\u00fcbungen',
-    '\\u00bbWaldg\\u00e4nger\\u00ab', 'r\\u00e9sistance-Bewegungen,',
-    'unmi\\u00dfverst\\u00e4ndliche', 'unver\\u00e4u\\u00dferlichen,'
+    'unmi\\u00dfverst\\u00e4ndliche', 'Wiederbelebungs\\u00fcbungen',
+    'r\\u00e9sistance-Bewegungen,', 'unver\\u00e4u\\u00dferlichen,',
+    '\\u00bbWaldg\\u00e4nger\\u00ab', 'Meinungs\\u00e4u\\u00dferung',
+    'Werkst\\u00e4ttenlandschaft', 'Souver\\u00e4nit\\u00e4tsan-',
+    'Br\\u00fcckenschl\\u00e4gen;', '\\u00bbFreiheitswahl\\u00ab'
 ]
+
 
 text = 'data.txt'
 
