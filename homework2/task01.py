@@ -73,3 +73,5 @@ def get_most_common_non_ascii_char(file_path: str) -> str:
             dir_all[v] = k
         key_max = max(dir_all.keys())
     return dir_all[key_max]
+
+print(get_longest_diverse_words('data.txt'))
