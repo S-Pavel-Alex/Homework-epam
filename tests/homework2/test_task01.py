@@ -10,21 +10,21 @@ answer = ['unmi\\u00dfverst\\u00e4ndliche', 'r\\u00e9sistance-Bewegungen,',
 text = 'data.txt'
 
 
-def check_long_words():
+def test_long_words():
     assert get_longest_diverse_words(text) == answer
 
 
-def chech_rerest_char():
+def test_rerest_char():
     assert get_rarest_char(text) == ")"
 
 
-def check_count_punctuation_char():
+def test_count_punctuation_char():
     assert count_punctuation_chars(text) == 4132
 
 
-def check_count_non_ascii_chars():
+def test_count_non_ascii_chars():
     assert count_non_ascii_chars(text) == 2971
 
 
-def check_most_common_non_ascii_char():
+def test_most_common_non_ascii_char():
     assert get_most_common_non_ascii_char(text) == 'daß'
