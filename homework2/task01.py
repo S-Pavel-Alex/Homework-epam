@@ -14,7 +14,7 @@ def get_longest_diverse_words(file_path: str) -> List[str]:
         line_all = fi.read()
         line_all = set(line_all.split())
         new_line = sorted(line_all, key=len, reverse=True)
-        final_li = new_line[:10]
+        final_li = sorted(new_line[:10])
         return final_li
 
 
@@ -73,5 +73,6 @@ def get_most_common_non_ascii_char(file_path: str) -> str:
             dir_all[v] = k
         key_max = max(dir_all.keys())
     return dir_all[key_max]
+
 
 print(get_longest_diverse_words('data.txt'))

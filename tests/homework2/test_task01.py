@@ -2,11 +2,14 @@ from homework2.task01 import get_longest_diverse_words, get_rarest_char
 from homework2.task01 import count_punctuation_chars, count_non_ascii_chars
 from homework2.task01 import get_most_common_non_ascii_char
 
-answer = ['unmi\\u00dfverst\\u00e4ndliche', 'unver\\u00e4u\\u00dferlichen,',
-          'Wiederbelebungs\\u00fcbungen', 'r\\u00e9sistance-Bewegungen,',
-          '\\u00bbWaldg\\u00e4nger\\u00ab', 'Br\\u00fcckenschl\\u00e4gen;',
-          'Werkst\\u00e4ttenlandschaft', 'Souver\\u00e4nit\\u00e4tsan-',
-          'Meinungs\\u00e4u\\u00dferung', 'D\\u00e4monenschw\\u00e4rme']
+answer = [
+    'Br\\u00fcckenschl\\u00e4gen;', 'D\\u00e4monenschw\\u00e4rme',
+    'Meinungs\\u00e4u\\u00dferung', 'Souver\\u00e4nit\\u00e4tsan-',
+    'Werkst\\u00e4ttenlandschaft', 'Wiederbelebungs\\u00fcbungen',
+    '\\u00bbWaldg\\u00e4nger\\u00ab', 'r\\u00e9sistance-Bewegungen,',
+    'unmi\\u00dfverst\\u00e4ndliche', 'unver\\u00e4u\\u00dferlichen,'
+]
+
 text = 'data.txt'
 
 
