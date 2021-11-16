@@ -24,13 +24,14 @@ import functools
 
 
 def cache(func: Callable) -> Callable:
+    my_dict = dict()
+
     @functools.wraps(func)
     def wrapper(*args):
         if args not in my_dict:
             my_dict[args] = func(*args)
         print(my_dict)
         return my_dict[args]
-    my_dict = dict()
     return wrapper
 
 
