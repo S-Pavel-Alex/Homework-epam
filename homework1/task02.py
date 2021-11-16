@@ -16,17 +16,23 @@ def _check_window(x: int, y: int, z: int) -> bool:
 
 
 def check_fibonacci(data: Sequence[int]) -> bool:
-    assert len(data) >= 3
-    assert data[0] == 0
-    assert data[1] == data[2] == 1
-    a, b, c = data[0], data[1], data[2]
+    if len(data) >= 3:
+        if data[0] == 0:
+            if data[1] == data[2] == 1:
+                a, b, c = data[0], data[1], data[2]
 
-    while data:
-        if not _check_window(a, b, c):
+                while data:
+                    if not _check_window(a, b, c):
+                        return False
+                    try:
+                        a, b, c = b, c, data[3]
+                    except IndexError:
+                        break
+                    data = data[1:]
+            else:
+                return False
+        else:
             return False
-        try:
-            a, b, c = b, c, data[3]
-        except IndexError:
-            break
-        data = data[1:]
+    else:
+        return False
     return True
