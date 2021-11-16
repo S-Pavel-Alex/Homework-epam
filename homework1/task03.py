@@ -23,11 +23,11 @@ def find_maximum_and_minimum(file_name: str) -> Tuple[int, int]:
         value_max = value_min
         for line in fi:
             try:
-                line = int(line.strip())
-                if value_min >= line:
-                    value_min = line
-                elif value_max <= line:
-                    value_max = line
+                line_convert_int = int(line.strip())
+                if value_min > line_convert_int:
+                    value_min = line_convert_int
+                elif value_max < line_convert_int:
+                    value_max = line_convert_int
             except ValueError:
                 pass
     return value_min, value_max
