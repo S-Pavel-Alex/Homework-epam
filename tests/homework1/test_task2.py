@@ -1,4 +1,4 @@
-from homework1.task02 import check_fibonacci, check_window
+from homework1.task02 import (check_fibonacci, check_window)
 
 
 def test_check_sum_true():
