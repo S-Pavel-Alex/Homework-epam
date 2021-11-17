@@ -1,5 +1,5 @@
-from hw2.task01 import (get_longest_diverse_words, get_rarest_char,
-                        count_punctuation_chars, count_non_ascii_chars,
+from hw2.task01 import (count_punctuation_chars, count_non_ascii_chars,
+                        get_longest_diverse_words, get_rarest_char,
                         get_most_common_non_ascii_char)
 
 answer = [
