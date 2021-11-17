@@ -18,8 +18,9 @@ val_2 = cache_func(*some)
 assert val_1 is val_2
 
 """
-from typing import Callable
 import functools
+
+from typing import Callable
 
 
 def cache(func: Callable) -> Callable:

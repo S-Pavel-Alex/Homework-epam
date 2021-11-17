@@ -1,6 +1,6 @@
-from hw2.task05 import custom_range
-
 import string
+
+from hw2.task05 import custom_range
 
 
 def test_with_one():
