@@ -1,7 +1,7 @@
-from hw2.task01 import get_longest_diverse_words
-from hw2.task01 import get_rarest_char
 from hw2.task01 import count_punctuation_chars
 from hw2.task01 import count_non_ascii_chars
+from hw2.task01 import get_longest_diverse_words
+from hw2.task01 import get_rarest_char
 from hw2.task01 import get_most_common_non_ascii_char
 
 
