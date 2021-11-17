@@ -33,5 +33,3 @@ def combinat(*args: List[Any]) -> List[List]:
         if i not in args:
             final_list.append(i)
     return final_list
-
-print(combinat([2, 3]))
