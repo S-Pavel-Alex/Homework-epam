@@ -10,7 +10,6 @@ answer = [
     'Werkst\\u00e4ttenlandschaft', 'Souver\\u00e4nit\\u00e4tsan-',
     'Br\\u00fcckenschl\\u00e4gen;', '\\u00bbFreiheitswahl\\u00ab'
 ]
-
 text = 'data.txt'
 
 
