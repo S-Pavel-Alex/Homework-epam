@@ -19,7 +19,6 @@ assert val_1 is val_2
 
 """
 from typing import Callable
-
 import functools
 
 

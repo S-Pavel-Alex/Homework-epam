@@ -1,4 +1,4 @@
-from homework2.task04 import funct
+from hw2.task04 import funct
 
 
 def test_correct_work():

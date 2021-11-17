@@ -1,4 +1,4 @@
-from homework2.task3 import combinat
+from hw2.task3 import combinat
 
 
 def test_correct_example():

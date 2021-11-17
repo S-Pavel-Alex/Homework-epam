@@ -1,4 +1,4 @@
-from homework2.task05 import custom_range
+from hw2.task05 import custom_range
 
 import string
 
