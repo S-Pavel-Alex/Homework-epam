@@ -4,6 +4,7 @@ from hw2.task01 import count_punctuation_chars
 from hw2.task01 import count_non_ascii_chars
 from hw2.task01 import get_most_common_non_ascii_char
 
+
 answer = [
     'unmi\\u00dfverst\\u00e4ndliche', 'Wiederbelebungs\\u00fcbungen',
     'r\\u00e9sistance-Bewegungen,', 'unver\\u00e4u\\u00dferlichen,',
