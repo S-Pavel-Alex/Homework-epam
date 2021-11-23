@@ -20,6 +20,3 @@ test_data = [
 @pytest.mark.parametrize("test_input,expected", test_data)
 def test_read_text_for_range(test_input, expected):
     assert read_magic_number(test_input) is expected
-
-
-
