@@ -1,8 +1,5 @@
 import urllib.request
 
-import requests
-import requests_mock
-
 from homework4.task02 import count_dots_on_i
 
 
