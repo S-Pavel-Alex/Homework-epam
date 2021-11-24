@@ -21,7 +21,7 @@ You will learn:
  - do a simple network requests
 
 
->>> count_dots_on_i("https://example.com/")
+ count_dots_on_i("https://example.com/")
 59
 
 * https://docs.python.org/3/library/urllib.request.html#urllib.request.urlopen
@@ -30,10 +30,14 @@ import urllib.request
 
 
 def count_dots_on_i(url: str) -> int:
-    response = urllib.request.urlopen(url)
-    text = response.read().decode('utf-8')
+    text = connect_url(url)
     total = 0
     for element in text:
         if element == 'i':
             total += 1
     return total
+
+
+def connect_url(url: str):
+    response = urllib.request.urlopen(url)
+    return response.read().decode('utf-8')
