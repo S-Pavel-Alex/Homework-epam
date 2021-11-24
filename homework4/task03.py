@@ -26,9 +26,7 @@ You will learn:
 
 
 def my_precious_logger(text: str):
-    list_text = text.strip()
-    first_word = list_text[0]
-    if first_word == 'error':
+    if text.startswith("error"):
         return sys.stderr.write(text)
     else:
         return sys.stdout.write(text)
