@@ -1,7 +1,9 @@
 import os
+
 import pytest
 
 from homework4.task01 import read_magic_number
+
 data_folder = os.path.join(os.path.dirname(__file__), 'data')
 file1 = os.path.join(data_folder, 'file_positive.txt')
 file2 = os.path.join(data_folder, 'file_positive_border.txt')

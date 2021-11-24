@@ -1,5 +1,4 @@
 import doctest
-
 from typing import List
 
 

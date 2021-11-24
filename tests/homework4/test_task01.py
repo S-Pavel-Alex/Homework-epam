@@ -1,6 +1,7 @@
 import os
 
 from homework4.task01 import read_magic_number
+
 data_folder = os.path.join(os.path.dirname(__file__), 'data')
 
 
