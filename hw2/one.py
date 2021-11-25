@@ -1,16 +1,9 @@
-"""
-Given a file containing text. Complete using only default collections:
-    1) Find 10 longest words consisting from largest amount of unique symbols
-    2) Find rarest symbol for document
-    3) Count every punctuation char
-    4) Count every non ascii char
-    5) Find most common non ascii char for document
-"""
-
 from typing import List
 
 
 def get_longest_diverse_words(file_path: str) -> List[str]:
+    """Find 10 longest words consisting from largest amount of unique
+     symbols"""
     my_dict = {}
     with open(file_path) as fi:
         line_all = fi.read()
@@ -24,6 +17,7 @@ def get_longest_diverse_words(file_path: str) -> List[str]:
 
 
 def get_rarest_char(file_path: str) -> str:
+    """Find rarest symbol for document"""
     my_dir = {}
     dir_all = {}
     with open(file_path) as fi:
@@ -39,6 +33,7 @@ def get_rarest_char(file_path: str) -> str:
 
 
 def count_punctuation_chars(file_path: str) -> int:
+    """Count every punctuation char"""
     my_list = []
     punctuation_list = ['.', ',', '?', '!']
     with open(file_path) as fi:
@@ -50,6 +45,7 @@ def count_punctuation_chars(file_path: str) -> int:
 
 
 def count_non_ascii_chars(file_path: str) -> int:
+    """Count every non ascii char"""
     my_list = []
     with open(file_path, encoding='raw_unicode_escape') as fi:
         for line in fi:
@@ -60,6 +56,7 @@ def count_non_ascii_chars(file_path: str) -> int:
 
 
 def get_most_common_non_ascii_char(file_path: str) -> str:
+    """Find most common non ascii char for document"""
     my_list = []
     my_dir = {}
     dir_all = {}
