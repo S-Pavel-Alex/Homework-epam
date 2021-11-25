@@ -1,6 +1,7 @@
 import os
 
-from homework1.task03 import find_maximum_and_minimum
+from hw1.three import find_maximum_and_minimum
+
 
 data_folder = os.path.join(os.path.dirname(__file__), 'data')
 

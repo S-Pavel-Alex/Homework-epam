@@ -1,7 +1,7 @@
-from homework1.task04 import check_sum_of_four
+from hw1.four import check_sum_of_four
 
 
-def test_check_lenth():
+def test_check_lenght():
     assert check_sum_of_four([1, -2, -3, 3], [-1, -2, -3, -3],
                              [-1, 2, 3, -3], [1, 2, 3, 3]) == 34
 
