@@ -1,0 +1,11 @@
+import sys
+
+from homework4.task3 import my_precious_logger
+
+
+def test_stderr_write_positive():
+    assert my_precious_logger('error') is sys.stderr.write('error')
+
+
+def test_stdout_write_positive():
+    assert my_precious_logger('test') is sys.stdout.write('test')
