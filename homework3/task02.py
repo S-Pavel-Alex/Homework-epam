@@ -13,7 +13,6 @@ def slow_calculate(value):
 
 
 if __name__ == '__main__':
-    data_number = range(10)
+    data_number = range(500)
     with multiprocessing.Pool(2) as pool:
-        print('Результаты:')
-        print(pool.map(slow_calculate, data_number))
+        pool.map(slow_calculate, data_number)
