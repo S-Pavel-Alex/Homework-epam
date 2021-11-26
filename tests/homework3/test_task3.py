@@ -1,10 +1,34 @@
-from homework3.task1 import my_fun
+from homework3.task3 import make_filter
+
+sample_data = [
+     {
+         "name": "Bill",
+         "last_name": "Gilbert",
+         "occupation": "was here",
+         "type": "person",
+     },
+     {
+         "is_dead": True,
+         "kind": "parrot",
+         "type": "bird",
+         "name": "polly"
+     },
+     {
+        "type": "person", "name": "Bill"
+     }
+]
 
 
-def test_cache():
-    assert my_fun(1) == (1, 1)
-    assert my_fun(1) == (1, 1)
-    assert my_fun(1) == (1, 1)
-    assert my_fun(2) == (2, 2)
-    assert my_fun(2) == (2, 2)
-    assert my_fun(2) == (2, 2)
+def test_one_position_correct():
+    """If find one correct position"""
+    assert make_filter(name='polly', type='bird').apply(sample_data) == [
+        {'is_dead': True, 'kind': 'parrot', 'type': 'bird', 'name': 'polly'}
+    ]
+
+
+def test_all_correct_position():
+    """If one and more position correct filter"""
+    assert make_filter(type='person', name='Bill').apply(sample_data) == [
+        {'name': 'Bill', 'last_name': 'Gilbert', 'occupation': 'was here',
+         'type': 'person'}, {'type': 'person', 'name': 'Bill'}
+    ]
