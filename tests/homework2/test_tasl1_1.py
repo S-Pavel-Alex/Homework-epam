@@ -7,4 +7,4 @@ file = os.path.join(data_folder, 'data1.txt')
 
 
 def test_count_punctuation_char():
-    assert count_punctuation_chars(file) == 4132
+    assert count_punctuation_chars(file) == 8277

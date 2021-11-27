@@ -6,13 +6,14 @@ Given a file containing text. Complete using only default collections:
     4) Count every non ascii char
     5) Find most common non ascii char for document
 """
+import string
 
 from typing import List
 
 
 def get_longest_diverse_words(file_path: str) -> List[str]:
     my_dict = {}
-    with open(file_path) as fi:
+    with open(file_path, encoding='raw_unicode_escape') as fi:
         line_all = fi.read()
         line_all = line_all.split()
         for element in line_all:
@@ -26,7 +27,7 @@ def get_longest_diverse_words(file_path: str) -> List[str]:
 def get_rarest_char(file_path: str) -> str:
     my_dir = {}
     dir_all = {}
-    with open(file_path) as fi:
+    with open(file_path, encoding='raw_unicode_escape') as fi:
         for line in fi:
             for element in line:
                 if element in my_dir:
@@ -39,14 +40,13 @@ def get_rarest_char(file_path: str) -> str:
 
 
 def count_punctuation_chars(file_path: str) -> int:
-    my_list = []
-    punctuation_list = ['.', ',', '?', '!']
+    total = 0
     with open(file_path) as fi:
         for line in fi:
             for element in line:
-                if element in punctuation_list:
-                    my_list.append(element)
-    return len(my_list)
+                if element in string.punctuation:
+                    total += 1
+    return total
 
 
 def count_non_ascii_chars(file_path: str) -> int:
@@ -68,12 +68,10 @@ def get_most_common_non_ascii_char(file_path: str) -> str:
         line = line_all.split()
         for element in line:
             if not element.isascii():
-                my_list.append(element)
-        for el in my_list:
-            if el in my_dir:
-                my_dir[el] += 1
-            else:
-                my_dir[el] = 1
+                if element in my_dir:
+                    my_dir[element] += 1
+                else:
+                    my_dir[element] = 1
         for k, v in my_dir.items():
             dir_all[v] = k
         key_max = max(dir_all.keys())
