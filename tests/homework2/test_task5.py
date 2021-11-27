@@ -21,3 +21,8 @@ def test_with_three():
     assert custom_range(string.ascii_lowercase, 'p', 'g', -2) == ['p', 'n',
                                                                   'l', 'j',
                                                                   'h']
+
+
+def test_with_non_ascii():
+    """If argument is non ascii symbol"""
+    assert custom_range(string.ascii_lowercase, '1') == 'Non ascii'
