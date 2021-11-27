@@ -60,7 +60,6 @@ def count_non_ascii_chars(file_path: str) -> int:
 
 
 def get_most_common_non_ascii_char(file_path: str) -> str:
-    my_list = []
     my_dir = {}
     dir_all = {}
     with open(file_path, encoding='raw_unicode_escape') as fi:
