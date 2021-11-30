@@ -22,14 +22,11 @@ from typing import List, Tuple
 
 def major_and_minor_elem(inp: List) -> Tuple[int, int]:
     my_dict = {}
-    final_dict = {}
     for element in inp:
         if element in my_dict:
             my_dict[element] += 1
         else:
             my_dict[element] = 1
-    for k, v in my_dict.items():
-        final_dict[v] = k
-    key_max = max(final_dict)
-    key_min = min(final_dict)
-    return final_dict[key_max], final_dict[key_min]
+    key_max = max(my_dict, key=my_dict.get)
+    key_min = min(my_dict, key=my_dict.get)
+    return key_max, key_min
