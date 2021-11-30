@@ -32,3 +32,10 @@ def test_all_correct_position():
         {'name': 'Bill', 'last_name': 'Gilbert', 'occupation': 'was here',
          'type': 'person'}, {'type': 'person', 'name': 'Bill'}
     ]
+
+
+def test_change_arguments():
+    assert make_filter(name='Bill', type='person').apply(sample_data) == [
+        {'name': 'Bill', 'last_name': 'Gilbert', 'occupation': 'was here',
+         'type': 'person'}, {'type': 'person', 'name': 'Bill'}
+    ]
