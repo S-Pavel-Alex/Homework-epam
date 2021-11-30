@@ -14,22 +14,28 @@ assert combinations([1, 2], [3, 4]) == [
     [2, 4],
 ]
 """
-
-from itertools import combinations
+import itertools
+from itertools import product
 from typing import Any, List
 
 
-def combinat(*args: List[Any]) -> List[List]:
-    all_list = []
-    final_list = []
-    ar_len = len(args)
-    if ar_len == 1:
-        return args[0]
-    for i in range(ar_len):
-        all_list += args[i]
-    combo = list(combinations(all_list, ar_len))
-    finish = list(map(lambda x: list(x), combo))
-    for i in finish:
-        if i not in args:
-            final_list.append(i)
-    return final_list
+def combinations(*args: List[Any]) -> List[List]:
+    return list(map(lambda x: list(x), [x for x in itertools.product(*args)]))
+
+
+
+print(combinations([2, 3]))
+# # print(list(product([1, 2], [3, 4])))
+#
+# def product2345(*args):
+#     # product('ABCD', 'xy') --> Ax Ay Bx By Cx Cy Dx Dy
+#     # product(range(2), repeat=3) --> 000 001 010 011 100 101 110 111
+#     pools = [tuple(pool) for pool in args]
+#     result = [[]]
+#     for pool in pools:
+#         result = [x+[y] for x in result for y in pool]
+#     for prod in result:
+#         yield tuple(prod)
+#     return result
+#
+# # print(list(product2345([1, 2], [3, 4])))
