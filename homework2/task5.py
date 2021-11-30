@@ -20,18 +20,24 @@ assert = custom_range(string.ascii_lowercase, 'p', 'g', -2) == ['p', 'n', 'l',
 
 
 def custom_range(str_ascii, first=None, second=None, third=None):
-    try:
-        ascii_list = list(str_ascii)
-        if second is None and third is None:
+    ascii_list = list(str_ascii)
+    if second is None and third is None:
+        try:
             end = ascii_list.index(first)
-            return ascii_list[:end]
-        elif third is None:
+        except ValueError:
+            return 'Non ascii'
+        return ascii_list[:end]
+    elif third is None:
+        try:
             start = ascii_list.index(first)
             end = ascii_list.index(second)
-            return ascii_list[start:end]
-        else:
+        except ValueError:
+            return 'Non ascii'
+        return ascii_list[start:end]
+    else:
+        try:
             start = ascii_list.index(first)
             end = ascii_list.index(second)
-            return ascii_list[start:end:third]
-    except ValueError:
-        return 'Non ascii'
+        except ValueError:
+            return 'Non ascii'
+        return ascii_list[start:end:third]
