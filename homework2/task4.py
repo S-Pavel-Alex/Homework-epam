@@ -19,26 +19,20 @@ assert val_1 is val_2
 
 """
 
-import functools
 from typing import Callable
 
 
 def cache(func: Callable) -> Callable:
     my_dict = dict()
 
-    @functools.wraps(func)
-    def wrapper(*args):
-        if args not in my_dict:
-            my_dict[args] = func(*args)
-        return my_dict[args]
+    def wrapper(*args, **kwargs):
+        key = str((args, kwargs))
+        if key not in my_dict:
+            my_dict[key] = func(*args, **kwargs)
+        return my_dict[key]
     return wrapper
 
 
 @cache
-def funct(a, b):
-    return (a ** b) ** 2
-
-
-@functools.lru_cache
-def functa(a, b):
-    return (a ** b) ** 2
+def my_function(*args, **kwargs):
+    return args, kwargs
