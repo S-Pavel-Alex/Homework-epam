@@ -27,8 +27,10 @@ def make_filter(**keywords):
     """
     filter_funcs = []
     for key, value in keywords.items():
-        def keyword_filter_func(dict_):
-            return dict_.get(key, '') == value
+        def keyword_filter_func(dict_, k=key, v=value):
+            if k in dict_:
+                return dict_[k] == v
+            return False
         filter_funcs.append(keyword_filter_func)
     return Filter(filter_funcs)
 
