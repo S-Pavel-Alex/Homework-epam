@@ -2,23 +2,21 @@ import functools
 
 
 def cache(time):
-    def oder(func):
+    def odder(func):
         my_dict = dict()
+        def wrapper(*args, **kwargs):
+            total = time
+            key = str((args, kwargs))
+            if key not in my_dict:
+                my_dict[key] = [func(*args, **kwargs), total]
 
-        @functools.wraps(func)
-        def wrapper(*args):
-            if args not in my_dict:
-                my_dict[args] = func(*args)
-            return my_dict[args]
+            return my_dict[key]
         return wrapper
-    return oder
-
-
-total = 0
+    return odder
 
 
 @cache(time=3)
-def my_fun(item):
-    global total
-    total += 1
-    return item, total
+def my_function(*args, **kwargs):
+    return args, kwargs
+
+print(my_function(1, 3))
