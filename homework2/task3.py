@@ -15,6 +15,7 @@ assert combinations([1, 2], [3, 4]) == [
 ]
 """
 from typing import Any, List
+
 import itertools
 
 
