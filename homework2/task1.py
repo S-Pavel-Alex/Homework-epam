@@ -6,6 +6,7 @@ Given a file containing text. Complete using only default collections:
     4) Count every non ascii char
     5) Find most common non ascii char for document
 """
+
 import string
 
 from typing import List
