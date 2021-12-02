@@ -17,16 +17,15 @@ Input: [2,2,1,1,1,2,2]
 Output: 2, 1
 
 """
+from collections import Counter
 from typing import List, Tuple
 
 
 def major_and_minor_elem(inp: List) -> Tuple[int, int]:
-    my_dict = {}
-    for element in inp:
-        if element in my_dict:
-            my_dict[element] += 1
-        else:
-            my_dict[element] = 1
+    my_dict = Counter(inp)
     key_max = max(my_dict, key=my_dict.get)
     key_min = min(my_dict, key=my_dict.get)
     return key_max, key_min
+
+
+print(major_and_minor_elem([-1, -1, -1]))
