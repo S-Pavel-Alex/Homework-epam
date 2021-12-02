@@ -25,19 +25,19 @@ def custom_range(str_ascii, first=None, second=None, third=None):
         try:
             end = ascii_list.index(first)
         except ValueError:
-            return 'Non ascii'
+            return 'Value Error'
         return ascii_list[:end]
     elif third is None:
         try:
             start = ascii_list.index(first)
             end = ascii_list.index(second)
         except ValueError:
-            return 'Non ascii'
+            return 'Value Error'
         return ascii_list[start:end]
     else:
         try:
             start = ascii_list.index(first)
             end = ascii_list.index(second)
         except ValueError:
-            return 'Non ascii'
+            return 'Value Error'
         return ascii_list[start:end:third]
