@@ -19,4 +19,4 @@ from typing import Any, List
 
 
 def combinations(*args: List[Any]) -> List[List]:
-    return list(map(lambda x: list(x), [x for x in itertools.product(*args)]))
+    return list(map(list, itertools.product(*args)))
