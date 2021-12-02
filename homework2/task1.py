@@ -13,11 +13,11 @@ from typing import List
 def get_longest_diverse_words(file_path: str) -> List[str]:
     my_dict = {}
     with open(file_path, encoding='raw_unicode_escape') as fi:
-        line_all = fi.read()
-        line_all = line_all.split()
-        for element in line_all:
-            if element not in my_dict:
-                my_dict[element] = 0
+        for line in fi:
+            line = line.split()
+            for element in line:
+                if element not in my_dict:
+                    my_dict[element] = 0
         new_line = sorted(my_dict, key=len, reverse=True)
         final_li = new_line[:10]
         return final_li
