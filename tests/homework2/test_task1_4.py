@@ -7,4 +7,4 @@ file = os.path.join(data_folder, 'data1.txt')
 
 
 def test_rerest_char():
-    assert get_rarest_char(file) == ")"
+    assert get_rarest_char(file) == "›"
