@@ -18,7 +18,7 @@ val_2 = cache_func(*some)
 assert val_1 is val_2
 
 """
-
+from inspect import signature
 from typing import Callable
 
 
@@ -26,7 +26,15 @@ def cache(func: Callable) -> Callable:
     my_dict = dict()
 
     def wrapper(*args, **kwargs):
-        key = str((args, kwargs))
+        sig = signature(func)
+        bound = sig.bind(*args, **kwargs)
+        arg = bound.arguments['args']
+        kwarg = bound.arguments['kwargs']
+        for k, v in kwarg.items():
+            print(k, v)
+        print(arg, kwarg)
+        key = str((arg, kwarg))
+        print(key)
         if key not in my_dict:
             my_dict[key] = func(*args, **kwargs)
         return my_dict[key]
@@ -36,3 +44,5 @@ def cache(func: Callable) -> Callable:
 @cache
 def my_function(*args, **kwargs):
     return args, kwargs
+
+my_function(1, 2, k=3, c=5)
