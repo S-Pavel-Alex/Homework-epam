@@ -1,9 +1,9 @@
 import time
 
-from homework3.task02 import multi_fuction
+from homework3.task02 import multiprocess_functiion
 
 
 def test_slow_calculation():
     start = time.time()
-    multi_fuction()
-    assert time.time() - start <= 60
+    multiprocess_functiion()
+    assert time.time() - start <= 10

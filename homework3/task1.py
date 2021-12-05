@@ -1,12 +1,23 @@
+from inspect import signature
+
+
 def cache(time):
     def odder(func):
         my_dict = dict()
-
+        total = time
+        wrapper.count = 0
         def wrapper(*args, **kwargs):
-            total = time
-            key = str((args, kwargs))
+            wrapper.count += 1
+            sig = signature(func)
+            bound = sig.bind(*args, **kwargs)
+            bound.apply_defaults()
+            arg = bound.arguments['args']
+            kwarg = bound.arguments['kwargs']
+            key = str((arg, kwarg))
+            nonlocal total
             if key not in my_dict:
-                my_dict[key] = [func(*args, **kwargs), total]
+                total -= 1
+                my_dict[key] = [func(*arg, **kwarg), total]
                 return my_dict[key][0]
             else:
                 if total != 0:
@@ -14,10 +25,6 @@ def cache(time):
                     return my_dict[key][0]
                 else:
                     del my_dict[key]
+
         return wrapper
     return odder
-
-
-@cache(time=3)
-def my_function(*args, **kwargs):
-    return args, kwargs

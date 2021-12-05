@@ -12,11 +12,8 @@ def slow_calculate(value):
     return sum(struct.unpack('<' + 'B' * len(data), data))
 
 
-def m():
-    if __name__ == '__main__':
-        data_number = range(500)
-        with multiprocessing.Pool() as pool:
-            k = pool.map(slow_calculate, data_number)
-        return sum(k)
-
-print(m())
+def multiprocess_functiion():
+    data_number = range(10)
+    with multiprocessing.Pool() as pool:
+        k = pool.map(slow_calculate, data_number)
+    return sum(k)
