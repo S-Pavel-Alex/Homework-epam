@@ -25,4 +25,4 @@ def test_with_three():
 
 def test_with_non_ascii():
     """If argument is non ascii symbol"""
-    assert custom_range(string.ascii_lowercase, '1') == 'Non ascii'
+    assert custom_range(string.ascii_lowercase, '1') == 'Value Error'
