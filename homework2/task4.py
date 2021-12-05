@@ -28,15 +28,13 @@ def cache(func: Callable) -> Callable:
     def wrapper(*args, **kwargs):
         sig = signature(func)
         bound = sig.bind(*args, **kwargs)
+        bound.apply_defaults()
+
         arg = bound.arguments['args']
         kwarg = bound.arguments['kwargs']
-        for k, v in kwarg.items():
-            print(k, v)
-        print(arg, kwarg)
         key = str((arg, kwarg))
-        print(key)
         if key not in my_dict:
-            my_dict[key] = func(*args, **kwargs)
+            my_dict[key] = func(*arg, **kwarg)
         return my_dict[key]
     return wrapper
 
@@ -45,4 +43,5 @@ def cache(func: Callable) -> Callable:
 def my_function(*args, **kwargs):
     return args, kwargs
 
-my_function(1, 2, k=3, c=5)
+
+print(my_function(1, 2))
