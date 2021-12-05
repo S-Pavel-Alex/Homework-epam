@@ -4,10 +4,7 @@ import urllib.request
 def count_dots_on_i(url: str) -> int:
     """Count i item"""
     text = connect_url(url)
-    total = 0
-    for element in text:
-        if element == 'i':
-            total += 1
+    total = text.count('i')
     return total
 
 

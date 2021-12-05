@@ -1,4 +1,3 @@
-import doctest
 from typing import List
 
 
@@ -14,19 +13,15 @@ def fizzbuzz(n: int) -> List[str]:
 
     """
 
-    basic_list = [x for x in range(1, n + 1)]
-    fiz_buz_list = []
+    basic_list = [str(x) for x in range(1, n + 1)]
     for item in basic_list:
-        if item % 3 == 0 and item % 5 == 0:
-            fiz_buz_list.append('fizz buzz')
-        elif item % 5 == 0:
-            fiz_buz_list.append('buzz')
-        elif item % 3 == 0:
-            fiz_buz_list.append('fizz')
-        else:
-            fiz_buz_list.append(str(item))
-    return fiz_buz_list
-
-
-if __name__ == "__main__":
-    doctest.testmod()
+        if int(item) % 3 == 0 and int(item) % 5 == 0:
+            item_index = basic_list.index(item)
+            basic_list[item_index] = 'fizz buzz'
+        elif int(item) % 5 == 0:
+            item_index = basic_list.index(item)
+            basic_list[item_index] = 'buzz'
+        elif int(item) % 3 == 0:
+            item_index = basic_list.index(item)
+            basic_list[item_index] = 'fizz'
+    return basic_list
