@@ -29,7 +29,6 @@ def cache(func: Callable) -> Callable:
         sig = signature(func)
         bound = sig.bind(*args, **kwargs)
         bound.apply_defaults()
-
         arg = bound.arguments['args']
         kwarg = bound.arguments['kwargs']
         key = str((arg, kwarg))
@@ -37,11 +36,3 @@ def cache(func: Callable) -> Callable:
             my_dict[key] = func(*arg, **kwarg)
         return my_dict[key]
     return wrapper
-
-
-@cache
-def my_function(*args, **kwargs):
-    return args, kwargs
-
-
-print(my_function(1, 2))

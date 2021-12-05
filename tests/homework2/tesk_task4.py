@@ -1,4 +1,9 @@
-from homework2.task4 import my_function
+from homework2.task4 import *
+
+
+@cache
+def my_function(*args, **kwargs):
+    return args, kwargs
 
 
 def test_correct_work():
