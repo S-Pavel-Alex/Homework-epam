@@ -1,4 +1,4 @@
-from homework2.task4 import *
+from homework2.task4 import cache
 
 
 @cache
