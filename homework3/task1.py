@@ -4,27 +4,23 @@ from inspect import signature
 def cache(time):
     def odder(func):
         my_dict = dict()
-        total = time
-        wrapper.count = 0
+
         def wrapper(*args, **kwargs):
-            wrapper.count += 1
             sig = signature(func)
             bound = sig.bind(*args, **kwargs)
             bound.apply_defaults()
-            arg = bound.arguments['args']
-            kwarg = bound.arguments['kwargs']
-            key = str((arg, kwarg))
-            nonlocal total
+            key = str(bound)
             if key not in my_dict:
-                total -= 1
-                my_dict[key] = [func(*arg, **kwarg), total]
+                my_dict[key] = [func(*args, **kwargs), time]
+                my_dict[key][1] -= 1
+                return my_dict[key][0]
+            elif key in my_dict and my_dict[key][1] != 0:
+                my_dict[key][1] -= 1
                 return my_dict[key][0]
             else:
-                if total != 0:
-                    total -= 1
-                    return my_dict[key][0]
-                else:
-                    del my_dict[key]
-
+                del my_dict[key]
+                my_dict[key] = [func(*args, **kwargs), time]
+                my_dict[key][1] -= 1
+                return my_dict[key][0]
         return wrapper
     return odder
