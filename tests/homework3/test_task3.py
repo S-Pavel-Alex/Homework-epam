@@ -41,5 +41,9 @@ def test_change_arguments():
     ]
 
 
-def test_negative():
+def test_negative_without():
     assert make_filter(name='Jack', kind='R').apply(sample_data) == []
+
+
+def test_negative_with_one():
+    assert make_filter(name='Jack', kind='parrot').apply(sample_data) == []
