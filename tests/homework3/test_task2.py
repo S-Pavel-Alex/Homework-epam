@@ -6,4 +6,4 @@
 # def test_slow_calculation():
 #     start = time.time()
 #     multiprocess_functiion()
-#     assert time.time() - start <= 10
+#     assert time.time() - start <= 60
