@@ -29,15 +29,36 @@ You will learn:
 *** https://docs.python.org/3/tutorial/errors.html#handling-exceptions
 **** https://docs.python.org/3/tutorial/errors.html#raising-exceptions
 """
+import os
+
+import pytest
 
 
+@pytest.fixture()
 def read_magic_number(path: str) -> bool:
     try:
+        with open(path, 'w') as text:
+            text.write(input())
         with open(path) as text:
-            first_line = int(text.readline().strip())
-            if 1 <= first_line < 3:
-                return True
-            else:
-                return False
-    except (ValueError, FileNotFoundError):
-        return False
+            for line in text:
+                return 1 <= float(line) < 3
+    except Exception as err:
+        raise ValueError(f'Error occured: {err}') from err
+    yield
+    os.remove(path)
+
+
+def test_read_magic_number(read_magic_number):
+    """This test show positive resault for element
+    in range [1, 3)"""
+    assert read_magic_number is True
+
+
+@pytest.fixture()
+def a_tuple():
+    """Вернуть что-нибудь более интересное"""
+    return (1, 'foo', None, {'bar': 23})
+
+def test_a_tuple(a_tuple):
+    """Demo the a_tuple fixture."""
+    assert a_tuple[3]['bar'] == 23
