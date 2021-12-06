@@ -53,12 +53,3 @@ def test_read_magic_number(read_magic_number):
     in range [1, 3)"""
     assert read_magic_number is True
 
-
-@pytest.fixture()
-def a_tuple():
-    """Вернуть что-нибудь более интересное"""
-    return (1, 'foo', None, {'bar': 23})
-
-def test_a_tuple(a_tuple):
-    """Demo the a_tuple fixture."""
-    assert a_tuple[3]['bar'] == 23
