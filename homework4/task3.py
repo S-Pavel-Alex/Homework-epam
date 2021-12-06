@@ -1,5 +1,3 @@
-import sys
-
 """
 Write a function that will receive a string and write it to stderr
 if line starts with "error" and to the stdout otherwise.
@@ -23,10 +21,11 @@ You will learn:
  - how to write to stderr
  - how to test output to the stderr and stdout
 """
+import sys
 
 
 def my_precious_logger(text: str):
     if text.startswith("error"):
-        return sys.stderr.write(text)
+        print(text, file=sys.stderr)
     else:
-        return sys.stdout.write(text)
+        print(text)
