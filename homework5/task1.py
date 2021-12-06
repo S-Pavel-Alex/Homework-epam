@@ -44,13 +44,13 @@ class Homework:
     def __init__(self, text, deadline):
         self.text = text            # text lesson
         self.deadline = datetime.timedelta(deadline)    # how many times
-        self.created = datetime.datetime.now()          # time create lesson
-        self.final_time = self.created + self.deadline
+        created = datetime.datetime.now()          # time create lesson
+        final_time = created + deadline
 
     def is_active(self):
-        time_for_test = datetime.datetime.now()
-        if time_for_test > self.final_time:
-            return 'You are lose'
+
+        if datetime.datetime.now() > self.final_time:
+            return False
         else:
             return True
 
@@ -72,7 +72,11 @@ class Student:
 
     @staticmethod
     def do_homework(homework):
-        return homework
+        if homework.is_active():
+            return homework
+        else:
+            print('You are lose')
+            return None
 
 
 if __name__ == '__main__':
@@ -80,15 +84,18 @@ if __name__ == '__main__':
     student = Student('Roman', 'Petrov')
 
     expired_homework = teacher.create_homework('Learn functions', 0)
-    print(expired_homework.created)  # Example: 2019-05-26 16:44:30.688762
-    print(expired_homework.deadline)  # 0:00:00
-    print(expired_homework.text)  # 'Learn functions'
-    #
+    # print(expired_homework.created)  # Example: 2019-05-26 16:44:30.688762
+    # print(expired_homework.deadline)  # 0:00:00
+    # print(expired_homework.text)  # 'Learn functions'
+    # #
     # create function from method and use it
     create_homework_too = teacher.create_homework
     oop_homework = create_homework_too('create 2 simple classes', 5)
-    print(oop_homework.deadline)  # 5 days, 0:00:00
+
+    # oop_homework.deadline  # 5 days, 0:00:00
     #
+    print(oop_homework.final_time)
+    print(oop_homework.created)
     print(student.do_homework(oop_homework))
     print(student.do_homework(expired_homework))  # You are late
 
