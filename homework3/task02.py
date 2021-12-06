@@ -1,8 +1,8 @@
-import time
-import struct
-import random
 import hashlib
 import multiprocessing
+import random
+import struct
+import time
 
 
 def slow_calculate(value):
@@ -12,7 +12,7 @@ def slow_calculate(value):
     return sum(struct.unpack('<' + 'B' * len(data), data))
 
 
-def multiprocess_functiion():
+def multiprocess_function():
     data_number = range(500)
     with multiprocessing.Pool(60) as pool:
         k = pool.map(slow_calculate, data_number)
