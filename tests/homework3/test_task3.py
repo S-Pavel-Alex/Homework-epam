@@ -39,3 +39,7 @@ def test_change_arguments():
         {'name': 'Bill', 'last_name': 'Gilbert', 'occupation': 'was here',
          'type': 'person'}, {'type': 'person', 'name': 'Bill'}
     ]
+
+
+def test_negative():
+    assert make_filter(name='Jack', kind='R').apply(sample_data) == []
