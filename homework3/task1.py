@@ -15,7 +15,6 @@ def cache(time):
                 return my_dict[key][0]
             else:
                 my_dict[key] = [func(*args, **kwargs), time]
-                my_dict[key][1] -= 1
                 return my_dict[key][0]
         return wrapper
     return odder

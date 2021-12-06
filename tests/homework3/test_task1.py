@@ -28,4 +28,4 @@ def test_cache_with_2():
     assert invoked == 0
     for _ in range(10):
         assert my_function(3) == 5
-    assert invoked == 5
+    assert invoked == 4
