@@ -37,7 +37,7 @@ def test_student_class():
 
 def test_working_classes():
     student = Student('Roman', 'Petrov')
-    teacher = Teacher( 'Daniil', 'Shadrin' )
+    teacher = Teacher('Daniil', 'Shadrin')
     expired_homework = teacher.create_homework('Learn functions', 0)
     assert expired_homework.text == 'Learn functions'
     active_homework = teacher.create_homework('Do something', 3)
