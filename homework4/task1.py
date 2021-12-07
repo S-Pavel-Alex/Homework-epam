@@ -37,8 +37,10 @@ import pytest
 @pytest.fixture()
 def read_magic_number(path: str) -> bool:
     try:
-        with open(path, 'w') as text:
-            text.write(input())
+        with open(tmp, 'w') as text:
+            text.write('213')
+        yield
+
         with open(path) as text:
             for line in text:
                 return 1 <= float(line) < 3
