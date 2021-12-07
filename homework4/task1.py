@@ -29,29 +29,12 @@ You will learn:
 *** https://docs.python.org/3/tutorial/errors.html#handling-exceptions
 **** https://docs.python.org/3/tutorial/errors.html#raising-exceptions
 """
-import os
-
-import pytest
 
 
-@pytest.fixture()
 def read_magic_number(path: str) -> bool:
     try:
-        with open(tmp, 'w') as text:
-            text.write('213')
-        yield
-
         with open(path) as text:
             for line in text:
                 return 1 <= float(line) < 3
     except Exception as err:
-        raise ValueError(f'Error occured: {err}') from err
-    yield
-    os.remove(path)
-
-
-def test_read_magic_number(read_magic_number):
-    """This test show positive resault for element
-    in range [1, 3)"""
-    assert read_magic_number is True
-
+        raise ValueError(f'Error occurred: {err}') from err
