@@ -44,12 +44,12 @@ class Homework:
     def __init__(self, text, deadline):
         self.text = text            # text lesson
         self.deadline = datetime.timedelta(deadline)    # how many times
-        created = datetime.datetime.now()          # time create lesson
-        final_time = created + deadline
+        self.created = datetime.datetime.today()          # time create lesson
+        self.final_time = self.created + self.deadline
 
     def is_active(self):
-
-        if datetime.datetime.now() > self.final_time:
+        right_now = datetime.datetime.today()
+        if right_now > self.final_time:
             return False
         else:
             return True
@@ -72,7 +72,7 @@ class Student:
 
     @staticmethod
     def do_homework(homework):
-        if homework.is_active():
+        if homework.is_active is True:
             return homework
         else:
             print('You are lose')
@@ -102,3 +102,4 @@ if __name__ == '__main__':
 # t = datetime.datetime.now()
 # d = datetime.timedelta()
 # print(d)
+    print(oop_homework.final_time)
