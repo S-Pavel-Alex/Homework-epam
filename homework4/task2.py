@@ -3,10 +3,11 @@ from unittest.mock import Mock
 
 def count_dots_on_i(url: str) -> int:
     """Count i item"""
-    if connect_url_mock(url).status_code != 200:
+    try:
+        text = connect_url_mock(url)
+        total = text.count('i')
+    except Exception:
         raise ValueError(f"Unreachable {url}")
-    text = connect_url_mock(url).text
-    total = text.count('i')
     return total
 
 
@@ -15,5 +16,4 @@ def connect_url_mock(url: str):
     mock_object = Mock()
     mock_object.url = url
     mock_object.text = 'i say i'
-    mock_object.status_code = 200
-    return mock_object
+    return mock_object.text

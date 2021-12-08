@@ -34,7 +34,7 @@ You will learn:
 def read_magic_number(path: str) -> bool:
     try:
         with open(path) as text:
-            for line in text:
-                return 1 <= float(line) < 3
+            line = text.readline()
+            return 1 <= float(line) < 3
     except Exception as err:
         raise ValueError(f'Error occurred: {err}') from err
