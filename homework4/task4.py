@@ -14,14 +14,11 @@ def fizzbuzz(n: int) -> List[str]:
     """
 
     basic_list = [str(x) for x in range(1, n + 1)]
-    for item in basic_list:
-        if int(item) % 3 == 0 and int(item) % 5 == 0:
-            item_index = basic_list.index(item)
-            basic_list[item_index] = 'fizz buzz'
-        elif int(item) % 5 == 0:
-            item_index = basic_list.index(item)
-            basic_list[item_index] = 'buzz'
-        elif int(item) % 3 == 0:
-            item_index = basic_list.index(item)
-            basic_list[item_index] = 'fizz'
+    for item in range(len(basic_list)):
+        if int(basic_list[item]) % 15 == 0:
+            basic_list[item] = 'fizz buzz'
+        elif int(basic_list[item]) % 5 == 0:
+            basic_list[item] = 'buzz'
+        elif int(basic_list[item]) % 3 == 0:
+            basic_list[item] = 'fizz'
     return basic_list
