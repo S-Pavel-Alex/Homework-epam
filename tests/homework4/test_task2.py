@@ -1,4 +1,5 @@
 import unittest.mock
+
 import pytest
 
 import homework4.task2
