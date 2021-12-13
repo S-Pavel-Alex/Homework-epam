@@ -1,5 +1,3 @@
-import time
-
 import datetime
 
 from homework5.task1 import (Homework, Student, Teacher)
@@ -48,7 +46,6 @@ def test_working_classes():
     expired_homework = teacher.create_homework('Learn functions', 0)
     assert expired_homework.text == 'Learn functions'
     active_homework = teacher.create_homework('Do something', 3)
-    time.sleep(1)
     assert active_homework.text == 'Do something'
     assert student.do_homework(active_homework) == active_homework
     assert student.do_homework(expired_homework) is None
