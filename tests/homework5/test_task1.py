@@ -1,4 +1,5 @@
 import datetime
+
 import time
 
 from homework5.task1 import (Homework, Student, Teacher)
