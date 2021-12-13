@@ -1,5 +1,6 @@
 import datetime
-from homework5.task1 import (Homework, Student, Teacher)
+
+from homework5.task1 import Homework, Student, Teacher
 
 
 def test_class_homework_text():
