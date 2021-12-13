@@ -1,6 +1,5 @@
-import datetime
-
 import time
+import datetime
 
 from homework5.task1 import (Homework, Student, Teacher)
 
