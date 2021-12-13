@@ -1,6 +1,7 @@
 import time
+import datetime
 
-from homework5.task1 import *
+from homework5.task1 import (Homework, Student, Teacher)
 
 
 def test_class_homework_text():
@@ -20,6 +21,11 @@ def test_class_homework_is_active_positive():
 
 def test_class_homework_is_active_negative():
     homework = Homework('Test', 0)
+    assert homework.is_active() is False
+
+
+def test_class_homework_is_active_negative_with_deadline_not_0():
+    homework = Homework('Test', -2)
     assert homework.is_active() is False
 
 
@@ -43,5 +49,5 @@ def test_working_classes():
     active_homework = teacher.create_homework('Do something', 3)
     time.sleep(1)
     assert active_homework.text == 'Do something'
-    assert type(student.do_homework(active_homework)) == Homework
+    assert student.do_homework(active_homework) == active_homework
     assert student.do_homework(expired_homework) is None
