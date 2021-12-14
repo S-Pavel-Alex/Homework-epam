@@ -13,8 +13,8 @@ def test_mock_count_dots_on_i_positive():
 
 def test_mock_count_dots_on_i_positive_():
     with unittest.mock.patch('requests.get') as mock_ob:
-        mock_ob().text = 'iisdfgisdvbjdcviasdviiasv'
-        assert count_dots_on_i('https://example.com/') == 6
+        mock_ob().text = 'iisdfgisdvbjdcviasdviasv'
+        assert count_dots_on_i('https://example.com/') == 5
 
 
 def test_mock_count_dots_without_i_positive():
