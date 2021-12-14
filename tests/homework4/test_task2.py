@@ -5,14 +5,16 @@ import pytest
 from homework4.task2 import count_dots_on_i
 
 
-def test_count_dots_on_i_positive():
-    assert count_dots_on_i('https://example.com/') == 59
-
-
 def test_mock_count_dots_on_i_positive():
     with unittest.mock.patch('requests.get') as mock_ob:
         mock_ob().text = 'i'
         assert count_dots_on_i('https://example.com/') == 1
+
+
+def test_mock_count_dots_on_i_positive_():
+    with unittest.mock.patch('requests.get') as mock_ob:
+        mock_ob().text = 'iisdfgisdvbjdcviasdviiasv'
+        assert count_dots_on_i('https://example.com/') == 6
 
 
 def test_mock_count_dots_without_i_positive():
