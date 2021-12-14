@@ -1,6 +1,12 @@
-import pytest
+import functools
 
-from homework5.task2 import custom_sum
+from homework5.task2 import print_result
+
+
+@print_result
+def custom_sum(*args):
+    """This function can sum any objects which have __add___"""
+    return functools.reduce(lambda x, y: x + y, args)
 
 
 def test_custom_sum_doc():
@@ -14,12 +20,5 @@ def test_custom_sum_name():
     assert custom_sum.__name__ == 'custom_sum'
 
 
-@pytest.mark.parametrize(
-    "args, result",
-    [
-        ((1, 2, 3, 4), 10),
-        (([1, 2, 3], [4, 5]), [1, 2, 3, 4, 5]),
-    ]
-)
-def test_result_print(args, result):
-    assert custom_sum(*args) == result
+def test_not_same():
+    assert custom_sum.__original_func(1, 3) == custom_sum(1, 3)
