@@ -40,7 +40,7 @@ def test_student_class():
     assert student.last_name == 'Bon'
 
 
-def test_working_classes():
+def test_working_classes(capsys):
     student = Student('Roman', 'Petrov')
     teacher = Teacher('Daniil', 'Shadrin')
     expired_homework = teacher.create_homework('Learn functions', 0)
@@ -49,3 +49,6 @@ def test_working_classes():
     assert active_homework.text == 'Do something'
     assert student.do_homework(active_homework) == active_homework
     assert student.do_homework(expired_homework) is None
+    out, err = capsys.readouterr()
+    assert out == 'You are lose\n'
+    assert err == ''
