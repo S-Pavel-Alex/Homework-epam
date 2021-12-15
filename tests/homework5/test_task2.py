@@ -31,5 +31,5 @@ def test_custom_sum_name():
 
 
 def test_not_same():
-    assert custom_sum.__original_func(1, 3) == 4
-    assert custom_sum(1, 3) == 5
+    """Test show origin function answer is not answer cover function """
+    assert custom_sum.__original_func(1, 3) != custom_sum(1, 3)
