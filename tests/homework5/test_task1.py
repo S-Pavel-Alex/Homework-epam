@@ -1,5 +1,7 @@
 import datetime
 
+from freezegun import freeze_time
+
 from homework5.task1 import Homework, Student, Teacher
 
 
@@ -23,8 +25,10 @@ def test_class_homework_is_active_negative():
     assert homework.is_active() is False
 
 
+@freeze_time("2021-12-18")
 def test_class_homework_is_active_negative_with_deadline_not_0():
-    homework = Homework('Test', -2)
+    homework = Homework('task', 2)
+    homework.created = datetime.datetime(2021, 12, 15)
     assert homework.is_active() is False
 
 
@@ -49,6 +53,5 @@ def test_working_classes(capsys):
     assert active_homework.text == 'Do something'
     assert student.do_homework(active_homework) == active_homework
     assert student.do_homework(expired_homework) is None
-    out, err = capsys.readouterr()
+    out, _ = capsys.readouterr()
     assert out == 'You are lose\n'
-    assert err == ''
