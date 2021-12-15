@@ -1,14 +1,3 @@
-def print_result(func):
-    @saver_decorator(func)
-    def wrapper(*args, **kwargs):
-        """Function-wrapper which print result of an original function"""
-        result = func(*args, **kwargs)
-        print(result)
-        return result
-
-    return wrapper
-
-
 def saver_decorator(source_func):
     """
     Decorator which save doc, name, original function

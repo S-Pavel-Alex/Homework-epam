@@ -1,9 +1,19 @@
 import functools
 
-from homework5.task2 import print_result
+from homework5.task2 import saver_decorator
 
 
-@print_result
+def print_result_plus_1(func):
+    @saver_decorator(func)
+    def wrapper(*args, **kwargs):
+        """Function-wrapper which print result of an original function"""
+        result = func(*args, **kwargs)
+        print(result)
+        return result + 1
+    return wrapper
+
+
+@print_result_plus_1
 def custom_sum(*args):
     """This function can sum any objects which have __add___"""
     return functools.reduce(lambda x, y: x + y, args)
@@ -21,4 +31,5 @@ def test_custom_sum_name():
 
 
 def test_not_same():
-    assert custom_sum.__original_func(1, 3) == custom_sum(1, 3)
+    assert custom_sum.__original_func(1, 3) == 4
+    assert custom_sum(1, 3) == 5
