@@ -3,7 +3,7 @@ def instances_counter(cls):
         count_instance = 0
 
         def __init__(self, *args, **kwarg):
-            self.obj = cls(*args, **kwarg)
+            self._obj = cls(*args, **kwarg)
             super().__init__(*args, **kwarg)
             ModifiedClass.count_instance += 1
 
@@ -17,12 +17,7 @@ def instances_counter(cls):
             cls.count_instance = 0
             return value_instance
 
-        def __getattribute__(self, item):
-            try:
-                x = super().__getattribute__(item)
-            except AttributeError:
-                return self.obj.__getattribute__(item)
-            else:
-                return x
+        def __getattr__(self, atr):
+            return getattr(self._obj, atr)
 
     return ModifiedClass
