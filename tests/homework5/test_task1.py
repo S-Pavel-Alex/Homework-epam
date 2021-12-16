@@ -52,6 +52,8 @@ def test_working_classes(capsys):
     active_homework = teacher.create_homework('Do something', 3)
     assert active_homework.text == 'Do something'
     assert student.do_homework(active_homework) == active_homework
+    out, _ = capsys.readouterr()
+    assert out == ''
     assert student.do_homework(expired_homework) is None
     out, _ = capsys.readouterr()
     assert out == 'You are lose\n'
