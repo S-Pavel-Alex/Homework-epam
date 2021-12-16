@@ -1,4 +1,6 @@
+from collections import defaultdict
 import datetime
+
 
 
 class DeadlineError(Exception):
@@ -16,14 +18,13 @@ class People:
 
 
 class HomeworkResult:
-    def __init__(self, author: object(), text_task: str, solution: str):
-        self.homework = homework
-        if isinstance(homework, Homework):
-            self.homework = homework
-        else:
+    def __init__(self, homework, solution: str, author: "Student"):
+        if not isinstance(homework, Homework):
             raise ObjectUncorrected('You gave a not Homework object')
-        self.text_task = text_task
+        self.homework = homework
+        self.author = author
         self.solution = solution
+        self. create = datetime.datetime.now()
 
 
 class Homework:
@@ -48,6 +49,10 @@ class Homework:
 
 
 class Teacher(People):
+    homework_done = defaultdict
+    def  check_homework(self, homework_result):
+
+
     @staticmethod
     def create_homework(text: str, how_many_days: int):
         """

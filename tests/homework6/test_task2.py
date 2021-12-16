@@ -30,12 +30,15 @@ def test_working_classes(capsys):
 
 def test_homework_result_positive():
     homework = Homework('text task', 4)
-    homework_result = HomeworkResult(homework, 'text task', 'good job')
-    assert homework_result.homework
+    student = Student('Pavel', 'Smirnov')
+    assert HomeworkResult(homework.text, 'good job', student)
+    # assert isinstance(hw.author, Student)
 
 
 def test_homework_result_negative():
     student = Student('Pavel', 'Smirnov')
+    homework = Homework('super task', 4)
     with pytest.raises(ObjectUncorrected) as err:
-        HomeworkResult(student, 'text task', 'good job')
+        HomeworkResult('text task', 'good job', student)
     assert str(err.value) == 'You gave a not Homework object'
+
