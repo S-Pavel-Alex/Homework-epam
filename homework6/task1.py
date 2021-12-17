@@ -1,23 +1,29 @@
-def instances_counter(cls):
-    class ModifiedClass:
-        count_instance = 0
+def instances_counter(original_class):
 
-        def __init__(self, *args, **kwarg):
-            self._obj = cls(*args, **kwarg)
-            super().__init__(*args, **kwarg)
-            ModifiedClass.count_instance += 1
+    def get_created_instances(cls):
+        if "counter" not in cls.__dict__:
+            return 0
+        return cls.counter
 
-        @classmethod
-        def get_created_instances(cls):
-            return cls.count_instance
+    old_init = original_class.__init__
 
-        @classmethod
-        def reset_instances_counter(cls):
-            value_instance = cls.count_instance
-            cls.count_instance = 0
-            return value_instance
+    def some_init(cls, *args, **kwargs):
+        old_init(cls, *args, **kwargs)
+        if "counter" not in cls.__class__.__dict__:
+            cls.__class__.counter = 1
+        else:
+            cls.__class__.counter += 1
 
-        def __getattr__(self, atr):
-            return getattr(self._obj, atr)
+    def reset_instances_counter(cls):
+        if "counter" not in cls.__dict__:
+            return 0
+        value = cls.counter
+        cls.counter = 0
+        return value
 
-    return ModifiedClass
+    original_class.get_created_instances = classmethod(get_created_instances)
+    original_class.__init__ = some_init
+    original_class.reset_instances_counter = \
+        classmethod(reset_instances_counter)
+
+    return original_class

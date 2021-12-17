@@ -19,7 +19,7 @@ class People:
 
 class HomeworkResult:
     def __init__(self, homework, solution: str, author: "Student"):
-        if not isinstance(homework, Homework):
+        if not Homework.__getattribute__(self, 'text'):
             raise ObjectUncorrected('You gave a not Homework object')
         self.homework = homework
         self.author = author
@@ -50,7 +50,7 @@ class Homework:
 
 class Teacher(People):
     homework_done = defaultdict
-    def  check_homework(self, homework_result):
+    # def  check_homework(self, homework_result):
 
 
     @staticmethod

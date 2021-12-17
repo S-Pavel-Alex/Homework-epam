@@ -31,7 +31,7 @@ def test_working_classes(capsys):
 def test_homework_result_positive():
     homework = Homework('text task', 4)
     student = Student('Pavel', 'Smirnov')
-    assert HomeworkResult(homework.text, 'good job', student)
+    assert HomeworkResult('text task', 'good job', student)
     # assert isinstance(hw.author, Student)
 
 

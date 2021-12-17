@@ -7,7 +7,6 @@ class User:
 
 
 def test_positive_count_instance_get_create():
-    assert User.get_created_instances() == 0
     user1, user2, user3 = User(), User(), User()
     assert User.get_created_instances() == 3
 
@@ -23,6 +22,6 @@ def test_positive_with_inheritance():
         pass
 
     user = User()
-    assert User.get_created_instances() == 1
+    assert user.get_created_instances() == 1
     user2 = User2()
-    assert User2.get_created_instances() == 1
+    assert user2.get_created_instances() == 1
