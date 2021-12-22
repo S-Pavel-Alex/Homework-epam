@@ -39,6 +39,9 @@ def test_teacher_common():
     result1 = student.do_homework(hw, 'This is result')
     result2 = student.do_homework(hw, 'This is result too')
     result3 = student.do_homework(hw, 'This is result again')
+    teacher_one.check_homework(result1)
+    teacher_two.check_homework(result2)
+    teacher_three.check_homework(result3)
     assert teacher_one.homework_done == teacher_two.homework_done
     assert teacher_two.homework_done == teacher_three.homework_done
 
