@@ -1,10 +1,10 @@
-import pytest
 import datetime
 
+import pytest
 from freezegun import freeze_time
 
-from homework6.task2 import Student, Teacher, Homework, DeadlineError, \
-    HomeworkResult
+from homework6.task2 import (DeadlineError, Homework, HomeworkResult, Student,
+                             Teacher)
 
 
 def test_class_teacher():
