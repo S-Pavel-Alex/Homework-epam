@@ -2,25 +2,38 @@ from collections import defaultdict
 import datetime
 
 
-
 class DeadlineError(Exception):
-    pass
-
-
-class ObjectUncorrected(Exception):
+    """Class error"""
     pass
 
 
 class People:
     def __init__(self, first_name: str, last_name: str):
+        """
+        Class description first and last name for the teacher and student
+        :param first_name: first name
+        :type first_name: str
+        :param last_name: last name
+        :type last_name: str
+        """
         self.first_name = first_name
         self.last_name = last_name
 
 
 class HomeworkResult:
-    def __init__(self, homework, solution: str, author: "Student"):
-        if not Homework.__getattribute__(self, 'text'):
-            raise ObjectUncorrected('You gave a not Homework object')
+    def __init__(self, author: "Student", homework, solution: str):
+        """
+        Constructor method for Homework class
+        :param author: object who do homework
+        :type author: Student
+        :param homework: object homework
+        :type homework: object
+        :param solution: answer's text
+        :type solution: str
+        :raises TypeError: You gave a not Homework object
+        """
+        if not isinstance(homework, Homework):
+            raise TypeError('You gave a not Homework object')
         self.homework = homework
         self.author = author
         self.solution = solution
@@ -40,7 +53,7 @@ class Homework:
         self.deadline = datetime.timedelta(deadline)
         self.created = datetime.datetime.now()
 
-    def is_active(self):
+    def is_active(self) -> bool:
         """
         Checks if the time for the task has expired
         :return: bool
@@ -49,12 +62,42 @@ class Homework:
 
 
 class Teacher(People):
-    homework_done = defaultdict
-    # def  check_homework(self, homework_result):
-
+    """
+    Class which check homework result and add in dict
+    """
+    homework_done = defaultdict(str)
 
     @staticmethod
-    def create_homework(text: str, how_many_days: int):
+    def check_homework(homework_result: object()) -> bool:
+        """
+        Method check homework result, how many symbols in result and
+        add in homework done if all alright
+        :param homework_result: object with result
+        :type homework_result: object()
+        :return: bool
+        """
+        if len(homework_result.solution) > 5:
+            Teacher.homework_done[homework_result.homework] = \
+                homework_result.solution
+            return True
+        else:
+            return False
+
+    @staticmethod
+    def reset_results(homework=None):
+        """
+        Method which delete homework from homework done, if homework in and
+        clean homework done if non homework
+        :param homework: object with homework text
+        :type homework: None or object
+        """
+        if isinstance(homework, Homework):
+            del Teacher.homework_done[homework]
+        elif homework is None:
+            Teacher.homework_done.clear()
+
+    @staticmethod
+    def create_homework(text: str, how_many_days: int) -> object:
         """
         Create and return new Homework instance
         :param text: task's text
@@ -67,15 +110,47 @@ class Teacher(People):
 
 
 class Student(People):
-    @staticmethod
-    def do_homework(homework: object()):
+    def do_homework(self, homework: object(), solution: str) -> object:
         """
         :param homework: object Homework's class
         :type homework: object()
-        :return: object if homework.is_active is True and None if False and
-        print You are lost
+        :param solution: answer's text
+        :type solution: str
+        :raise DeadlineError: You are late
+        :return: object if homework.is_active is True
         """
         if homework.is_active():
-            return homework
+            return HomeworkResult(self, homework, solution)
         else:
             raise DeadlineError('You are late')
+
+
+if __name__ == '__main__':
+    opp_teacher = Teacher('Daniil', 'Shadrin')
+    advanced_python_teacher = Teacher('Aleksandr', 'Smetanin')
+
+    lazy_student = Student('Roman', 'Petrov')
+    good_student = Student('Lev', 'Sokolov')
+
+    oop_hw = opp_teacher.create_homework('Learn OOP', 1)
+    docs_hw = opp_teacher.create_homework('Read docs', 5)
+
+    result_1 = good_student.do_homework(oop_hw, 'I have done this hw')
+    result_2 = good_student.do_homework(docs_hw, 'I have done this hw too')
+    result_3 = lazy_student.do_homework(docs_hw, 'done')
+    try:
+        result_4 = HomeworkResult(good_student, "fff", "Solution")
+    except Exception:
+        print('There was an exception here')
+    opp_teacher.check_homework(result_1)
+    temp_1 = opp_teacher.homework_done
+
+    advanced_python_teacher.check_homework(result_1)
+    temp_2 = Teacher.homework_done
+    assert temp_1 == temp_2
+
+    opp_teacher.check_homework(result_2)
+    opp_teacher.check_homework(result_3)
+
+    print(Teacher.homework_done[oop_hw])
+    Teacher.reset_results()
