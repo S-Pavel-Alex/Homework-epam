@@ -12,6 +12,7 @@ def test_positive_count_instance_get_create():
     assert user2.get_created_instances() == 3
     assert user3.get_created_instances() == 3
     assert User.get_created_instances() == 3
+    User.reset_instances_counter()
 
 
 def test_positive_count_instance_reset_instance():
