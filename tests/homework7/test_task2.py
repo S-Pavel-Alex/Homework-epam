@@ -5,6 +5,7 @@ def test_backspace_compare_correct():
     assert backspace_compare("ab#c", "ad#c") is True
     assert backspace_compare("a##c", "#a#c") is True
     assert backspace_compare(" ## ", "# # ") is True
+    assert backspace_compare("", "") is True
 
 
 def test_backspace_compare_incorrect():
