@@ -16,7 +16,7 @@ def test_class_teacher():
     assert teacher_good.last_name == 'Smirnov'
     assert teacher_good.check_homework(good_result) is True
     assert teacher_good.homework_done[good_hw] ==\
-           "It's is good answer"
+           ["It's is good answer"]
 
 
 def test_teacher_class_bad():
@@ -26,7 +26,7 @@ def test_teacher_class_bad():
     bad_student = Student('Otto', 'Octavius')
     bad_result = HomeworkResult(bad_student, bad_hw, 'Done')
     assert teacher_bad.check_homework(bad_result) is False
-    assert teacher_bad.homework_done[bad_hw] == ""
+    assert teacher_bad.homework_done[bad_hw] == []
 
 
 def test_teacher_common():
@@ -54,18 +54,24 @@ def test_reset_answer():
     good_hw3 = teacher_good.create_homework("It's good task", 2)
     good_student = Student('Spider', 'Man')
     good_result = HomeworkResult(good_student, good_hw, "It's is good answer")
+    good_result1 = HomeworkResult(good_student, good_hw, "It's is good answer"
+                                                         " for good student")
     good_result2 = HomeworkResult(good_student, good_hw2,
                                   "It's is good answer too")
     good_result3 = HomeworkResult(good_student, good_hw3,
                                   "It's is good answer again")
     teacher_good.check_homework(good_result)
+    teacher_good.check_homework(good_result1)
     teacher_good.check_homework(good_result2)
     teacher_good.check_homework(good_result3)
-    assert Teacher.homework_done[good_hw] == "It's is good answer"
-    assert Teacher.homework_done[good_hw2] == "It's is good answer too"
-    assert Teacher.homework_done[good_hw3] == "It's is good answer again"
+    assert Teacher.homework_done[good_hw] == ["It's is good answer",
+                                              "It's is good answer"
+                                              " for good student"
+                                              ]
+    assert Teacher.homework_done[good_hw2] == ["It's is good answer too"]
+    assert Teacher.homework_done[good_hw3] == ["It's is good answer again"]
     Teacher.reset_results(good_hw)
-    assert Teacher.homework_done[good_hw] == ""
+    assert Teacher.homework_done[good_hw] == []
     Teacher.reset_results()
     assert Teacher.homework_done == {}
 

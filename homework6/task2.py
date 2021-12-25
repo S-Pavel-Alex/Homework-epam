@@ -21,13 +21,13 @@ class People:
 
 
 class HomeworkResult:
-    def __init__(self, author: "Student", homework, solution: str):
+    def __init__(self, author: "Student", homework: "Homework", solution: str):
         """
         Constructor method for Homework class
         :param author: object who do homework
         :type author: Student
         :param homework: object homework
-        :type homework: object
+        :type homework: Homework
         :param solution: answer's text
         :type solution: str
         :raises TypeError: You gave a not Homework object
@@ -37,7 +37,7 @@ class HomeworkResult:
         self.homework = homework
         self.author = author
         self.solution = solution
-        self. create = datetime.datetime.now()
+        self.created = datetime.datetime.now()
 
 
 class Homework:
@@ -65,39 +65,41 @@ class Teacher(People):
     """
     Class which check homework result and add in dict
     """
-    homework_done = defaultdict(str)
+    homework_done = defaultdict(list)
 
     @staticmethod
-    def check_homework(homework_result: object()) -> bool:
+    def check_homework(homework_result: 'HomeworkResult') -> bool:
         """
         Method check homework result, how many symbols in result and
         add in homework done if all alright
         :param homework_result: object with result
-        :type homework_result: object()
+        :type homework_result: HomeworkResult
         :return: bool
         """
         if len(homework_result.solution) > 5:
-            Teacher.homework_done[homework_result.homework] = \
-                homework_result.solution
+            if homework_result.solution not in\
+                    Teacher.homework_done[homework_result.homework]:
+                Teacher.homework_done[homework_result.homework].append(
+                    homework_result.solution)
             return True
         else:
             return False
 
     @staticmethod
-    def reset_results(homework=None):
+    def reset_results(homework: 'Homework' = None):
         """
         Method which delete homework from homework done, if homework in and
         clean homework done if non homework
         :param homework: object with homework text
-        :type homework: None or object
+        :type homework: Homework
         """
         if isinstance(homework, Homework):
             del Teacher.homework_done[homework]
-        elif homework is None:
+        else:
             Teacher.homework_done.clear()
 
     @staticmethod
-    def create_homework(text: str, how_many_days: int) -> object:
+    def create_homework(text: str, how_many_days: int) -> 'Homework':
         """
         Create and return new Homework instance
         :param text: task's text
@@ -110,10 +112,11 @@ class Teacher(People):
 
 
 class Student(People):
-    def do_homework(self, homework: object(), solution: str) -> object:
+    def do_homework(self, homework: 'Homework', solution: str) -> \
+            'HomeworkResult':
         """
         :param homework: object Homework's class
-        :type homework: object()
+        :type homework: Homework
         :param solution: answer's text
         :type solution: str
         :raise DeadlineError: You are late
