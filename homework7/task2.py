@@ -14,7 +14,7 @@ def generation(string):
             yield item
 
 
-def backspace_compare(first: str, second: str):
+def backspace_compare(first: str, second: str) -> bool:
     for first, second in zip_longest(generation(first[::-1]),
                                      generation(second[::-1])):
         if first != second:
