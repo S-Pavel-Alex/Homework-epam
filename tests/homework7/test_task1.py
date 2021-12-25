@@ -25,3 +25,4 @@ def test_find_occurrences():
     assert find_occurrences(example_tree, '') == 0
     assert find_occurrences(example_tree, True) == 1
     assert find_occurrences(example_tree, 'fourth') == 1
+    assert find_occurrences(example_tree, 'f') == 0
