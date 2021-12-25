@@ -1,6 +1,6 @@
-from typing import Any
 from collections import abc
 from itertools import chain
+from typing import Any
 
 
 def find_occurrences(tree: dict, element: Any) -> int:
@@ -15,5 +15,3 @@ def find_occurrences(tree: dict, element: Any) -> int:
     if isinstance(tree, abc.Mapping):
         return sum(find_occurrences(t, element)
                    for t in chain(tree.keys(), tree.values()))
-
-

@@ -14,9 +14,9 @@ class Board:
         return False
 
     def check_winner_in_diagonal(self):
-        a0, b0, c0 = self.board[0][0], self.board[0][1], self.board[0][2]
-        a1, b1, c1 = self.board[1][0], self.board[1][1], self.board[1][2]
-        a2, b2, c2 = self.board[2][0], self.board[2][1], self.board[2][2]
+        a0, c0 = self.board[0][0], self.board[0][2]
+        b1 = self.board[1][1]
+        a2, c2 = self.board[2][0], self.board[2][2]
         if a0 == b1 == c2 == 'x' or c0 == b1 == a2 == 'x':
             return 'x'
         elif a0 == b1 == c2 == 'o' or c0 == b1 == a2 == 'x':
