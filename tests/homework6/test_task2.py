@@ -28,7 +28,6 @@ def test_teacher_class_bad():
     bad_result = HomeworkResult(bad_student, bad_hw, 'Done')
     assert teacher_bad.check_homework(bad_result) is False
     assert teacher_bad.homework_done[bad_student] == {}
-    print(Teacher.homework_done)
 
 
 def test_teacher_common():
@@ -46,7 +45,6 @@ def test_teacher_common():
     teacher_three.check_homework(result3)
     assert teacher_one.homework_done == teacher_two.homework_done
     assert teacher_two.homework_done == teacher_three.homework_done
-    print(Teacher.homework_done)
 
 
 def test_reset_answer():
