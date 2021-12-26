@@ -65,7 +65,7 @@ class Teacher(People):
     """
     Class which check homework result and add in dict
     """
-    homework_done = defaultdict(list)
+    homework_done = defaultdict(dict)
 
     @staticmethod
     def check_homework(homework_result: 'HomeworkResult') -> bool:
@@ -77,10 +77,8 @@ class Teacher(People):
         :return: bool
         """
         if len(homework_result.solution) > 5:
-            if homework_result.solution not in\
-                    Teacher.homework_done[homework_result.homework]:
-                Teacher.homework_done[homework_result.homework].append(
-                    homework_result.solution)
+            Teacher.homework_done[homework_result.author] =\
+                {homework_result.homework: homework_result}
             return True
         else:
             return False
@@ -94,7 +92,11 @@ class Teacher(People):
         :type homework: Homework
         """
         if isinstance(homework, Homework):
-            del Teacher.homework_done[homework]
+            for st in Teacher.homework_done:
+                for h in Teacher.homework_done[st]:
+                    if h == homework:
+                        del Teacher.homework_done[st][h]
+                        break
         else:
             Teacher.homework_done.clear()
 

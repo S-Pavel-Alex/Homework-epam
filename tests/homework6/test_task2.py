@@ -9,14 +9,15 @@ from homework6.task2 import (DeadlineError, Homework, HomeworkResult, Student,
 
 def test_class_teacher():
     teacher_good = Teacher('Pavel', 'Smirnov')
+    Teacher.reset_results()
     good_hw = teacher_good.create_homework("It's good task", 2)
     good_student = Student('Spider', 'Man')
     good_result = HomeworkResult(good_student, good_hw, "It's is good answer")
     assert teacher_good.first_name == 'Pavel'
     assert teacher_good.last_name == 'Smirnov'
     assert teacher_good.check_homework(good_result) is True
-    assert teacher_good.homework_done[good_hw] ==\
-           ["It's is good answer"]
+    assert teacher_good.homework_done[good_student][good_hw].solution == \
+           "It's is good answer"
 
 
 def test_teacher_class_bad():
@@ -26,7 +27,8 @@ def test_teacher_class_bad():
     bad_student = Student('Otto', 'Octavius')
     bad_result = HomeworkResult(bad_student, bad_hw, 'Done')
     assert teacher_bad.check_homework(bad_result) is False
-    assert teacher_bad.homework_done[bad_hw] == []
+    assert teacher_bad.homework_done[bad_student] == {}
+    print(Teacher.homework_done)
 
 
 def test_teacher_common():
@@ -44,34 +46,37 @@ def test_teacher_common():
     teacher_three.check_homework(result3)
     assert teacher_one.homework_done == teacher_two.homework_done
     assert teacher_two.homework_done == teacher_three.homework_done
+    print(Teacher.homework_done)
 
 
 def test_reset_answer():
     """Check deleting one position"""
-    teacher_good = Teacher('Pavel', 'Smirnov')
-    good_hw = teacher_good.create_homework("It's good task", 2)
-    good_hw2 = teacher_good.create_homework("It's good task", 2)
-    good_hw3 = teacher_good.create_homework("It's good task", 2)
+    teacher = Teacher('Pavel', 'Smirnov')
+    Teacher.reset_results()
+    good_hw = teacher.create_homework("It's good task", 2)
+    good_hw2 = teacher.create_homework("It's good task", 2)
     good_student = Student('Spider', 'Man')
+    best_student = Student('Iron', 'Man')
+    best_hw = teacher.create_homework("It's best task", 2)
+    best_result = HomeworkResult(best_student, best_hw, "It's is best answer")
     good_result = HomeworkResult(good_student, good_hw, "It's is good answer")
-    good_result1 = HomeworkResult(good_student, good_hw, "It's is good answer"
-                                                         " for good student")
     good_result2 = HomeworkResult(good_student, good_hw2,
                                   "It's is good answer too")
-    good_result3 = HomeworkResult(good_student, good_hw3,
-                                  "It's is good answer again")
-    teacher_good.check_homework(good_result)
-    teacher_good.check_homework(good_result1)
-    teacher_good.check_homework(good_result2)
-    teacher_good.check_homework(good_result3)
-    assert Teacher.homework_done[good_hw] == ["It's is good answer",
-                                              "It's is good answer"
-                                              " for good student"
-                                              ]
-    assert Teacher.homework_done[good_hw2] == ["It's is good answer too"]
-    assert Teacher.homework_done[good_hw3] == ["It's is good answer again"]
-    Teacher.reset_results(good_hw)
-    assert Teacher.homework_done[good_hw] == []
+    teacher.check_homework(good_result)
+    teacher.check_homework(good_result2)
+    teacher.check_homework(best_result)
+    assert Teacher.homework_done[good_student] == {good_hw2: good_result2}
+    assert Teacher.homework_done[best_student] == {best_hw: best_result}
+    assert Teacher.homework_done == {
+        good_student:
+        {
+            good_hw2: good_result2
+        },
+        best_student: {best_hw: best_result}}
+    Teacher.reset_results(good_hw2)
+    assert good_hw2 not in Teacher.homework_done[good_student]
+    assert Teacher.homework_done == {good_student: {},
+                                     best_student: {best_hw: best_result}}
     Teacher.reset_results()
     assert Teacher.homework_done == {}
 
