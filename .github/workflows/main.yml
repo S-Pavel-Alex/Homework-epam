@@ -17,6 +17,7 @@ jobs:
         run: |
           pip install requests
           pip install flake8 isort pytest
+          pip install freezegun
           ls -la
           flake8 .
           isort --check .
