@@ -77,8 +77,8 @@ class Teacher(People):
         :return: bool
         """
         if len(homework_result.solution) > 5:
-            Teacher.homework_done[homework_result.author] =\
-                {homework_result.homework: homework_result}
+            Teacher.homework_done[homework_result.homework] =\
+                {homework_result.author: homework_result}
             return True
         else:
             return False
@@ -92,11 +92,7 @@ class Teacher(People):
         :type homework: Homework
         """
         if isinstance(homework, Homework):
-            for st in Teacher.homework_done:
-                for h in Teacher.homework_done[st]:
-                    if h == homework:
-                        del Teacher.homework_done[st][h]
-                        break
+            del Teacher.homework_done[homework]
         else:
             Teacher.homework_done.clear()
 

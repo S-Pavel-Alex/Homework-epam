@@ -9,14 +9,13 @@ from homework6.task2 import (DeadlineError, Homework, HomeworkResult, Student,
 
 def test_class_teacher():
     teacher_good = Teacher('Pavel', 'Smirnov')
-    Teacher.reset_results()
     good_hw = teacher_good.create_homework("It's good task", 2)
     good_student = Student('Spider', 'Man')
     good_result = HomeworkResult(good_student, good_hw, "It's is good answer")
     assert teacher_good.first_name == 'Pavel'
     assert teacher_good.last_name == 'Smirnov'
     assert teacher_good.check_homework(good_result) is True
-    assert teacher_good.homework_done[good_student][good_hw].solution == \
+    assert teacher_good.homework_done[good_hw][good_student].solution == \
            "It's is good answer"
 
 
@@ -27,7 +26,7 @@ def test_teacher_class_bad():
     bad_student = Student('Otto', 'Octavius')
     bad_result = HomeworkResult(bad_student, bad_hw, 'Done')
     assert teacher_bad.check_homework(bad_result) is False
-    assert teacher_bad.homework_done[bad_student] == {}
+    assert teacher_bad.homework_done[bad_hw] == {}
 
 
 def test_teacher_common():
@@ -60,21 +59,23 @@ def test_reset_answer():
     good_result = HomeworkResult(good_student, good_hw, "It's is good answer")
     good_result2 = HomeworkResult(good_student, good_hw2,
                                   "It's is good answer too")
+    assert Teacher.homework_done == {}
     teacher.check_homework(good_result)
     teacher.check_homework(good_result2)
     teacher.check_homework(best_result)
-    assert Teacher.homework_done[good_student] == {good_hw2: good_result2}
-    assert Teacher.homework_done[best_student] == {best_hw: best_result}
+    assert Teacher.homework_done[good_hw2] == {good_student: good_result2}
+    assert Teacher.homework_done[best_hw] == {best_student: best_result}
     assert Teacher.homework_done == {
-        good_student:
-        {
-            good_hw2: good_result2
-        },
-        best_student: {best_hw: best_result}}
+        good_hw: {good_student: good_result},
+        good_hw2: {good_student: good_result2},
+        best_hw: {best_student: best_result}
+    }
     Teacher.reset_results(good_hw2)
-    assert good_hw2 not in Teacher.homework_done[good_student]
-    assert Teacher.homework_done == {good_student: {},
-                                     best_student: {best_hw: best_result}}
+    assert good_hw2 not in Teacher.homework_done
+    assert Teacher.homework_done == {
+        good_hw: {good_student: good_result},
+        best_hw: {best_student: best_result}
+    }
     Teacher.reset_results()
     assert Teacher.homework_done == {}
 
