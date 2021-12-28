@@ -9,9 +9,9 @@ example_tree = {
         "abc": "BLUE",
         "jhl": "RED",
         "complex_key": {
-            "key1": "value1",
+            "key1": 0,
             "key2": "RED",
-            "key3": ["a", "lot", "of", "values", {"nested_key": 4}],
+            "key3": ["a", "lot", "of", "values", {"nested_key": 0}],
         }
      },
     "fourth": "RED",
@@ -20,7 +20,11 @@ example_tree = {
 
 def test_find_occurrences():
     assert find_occurrences(example_tree, "RED") == 5
-    assert find_occurrences(example_tree, 4) == 2
+    assert find_occurrences(example_tree, 'of') == 1
+    assert find_occurrences(example_tree, "nested_key") == 1
+    assert find_occurrences(example_tree, "jhl") == 1
+    assert find_occurrences(example_tree, 0) == 2
+    assert find_occurrences(example_tree, 4) == 1
     assert find_occurrences(example_tree, 'example') == 0
     assert find_occurrences(example_tree, '') == 0
     assert find_occurrences(example_tree, True) == 1
