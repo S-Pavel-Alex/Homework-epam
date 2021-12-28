@@ -1,4 +1,5 @@
 import pytest
+
 from homework7.task12 import find_occurrences
 
 
