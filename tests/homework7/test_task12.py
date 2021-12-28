@@ -2,7 +2,6 @@ import pytest
 
 from homework7.task12 import find_occurrences
 
-
 example_tree = {
     "first": ["RED", "BLUE"],
     "second": {
