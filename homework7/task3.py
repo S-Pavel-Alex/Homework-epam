@@ -46,4 +46,3 @@ def tic_tac_toe_checker(board: List[List]) -> str:
         return 'unfinished!'
     else:
         return 'draw!'
-
