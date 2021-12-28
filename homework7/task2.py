@@ -15,8 +15,8 @@ def generation(string):
 
 
 def backspace_compare(first: str, second: str) -> bool:
-    for first, second in zip_longest(generation(first[::-1]),
-                                     generation(second[::-1])):
-        if first != second:
+    for one, two in zip_longest(generation(first[::-1]),
+                                generation(second[::-1])):
+        if one != two:
             return False
     return True
