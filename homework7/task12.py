@@ -17,9 +17,5 @@ def find_occurrences(tree: dict, element: Any) -> int:
                 stack.put(i)
         elif isinstance(data, dict):
             for item in chain(data.keys(), data.values()):
-                if isinstance(item, (list, tuple, set, dict)):
-                    stack.put(item)
-                else:
-                    if item == element:
-                        total += 1
+                stack.put(item)
     return total
