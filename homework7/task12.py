@@ -1,27 +1,24 @@
 from itertools import chain
 from typing import Any
+import queue
 
 
 def find_occurrences(tree: dict, element: Any) -> int:
-    stack = list()
-    stack.append(tree)
+    stack = queue.LifoQueue()
+    stack.put(tree)
     total = 0
-    while stack:
-        data = stack.pop()
+    while not stack.empty():
+        data = stack.get()
         if isinstance(data, (int, str, bool)):
             if data == element:
                 total += 1
         elif isinstance(data, (list, tuple, set)):
             for i in data:
-                if isinstance(i, (list, tuple, set, dict)):
-                    stack.append(i)
-                else:
-                    if i == element:
-                        total += 1
+                stack.put(i)
         elif isinstance(data, dict):
             for item in chain(data.keys(), data.values()):
                 if isinstance(item, (list, tuple, set, dict)):
-                    stack.append(item)
+                    stack.put(item)
                 else:
                     if item == element:
                         total += 1
