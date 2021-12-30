@@ -26,9 +26,10 @@ def tic_tac_toe_checker(board: List[List]) -> str:
     :param board: this combination on board
     :type board: List[List]
     """
-    if winner_combination(board) == 'x':
+    winner = winner_combination(board)
+    if winner == 'x':
         return 'x wins!'
-    if winner_combination(board) == 'o':
+    if winner == 'o':
         return 'o wins!'
     if unfinished(board):
         return 'unfinished!'
