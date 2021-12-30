@@ -1,5 +1,5 @@
-from typing import List
 from itertools import chain
+from typing import List
 
 
 def winner_combination(board: List[List]):

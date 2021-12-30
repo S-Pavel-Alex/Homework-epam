@@ -1,6 +1,6 @@
+import queue
 from itertools import chain
 from typing import Any
-import queue
 
 
 def find_occurrences(tree: dict, element: Any) -> int:
