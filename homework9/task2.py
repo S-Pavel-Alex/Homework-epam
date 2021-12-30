@@ -2,6 +2,7 @@ import contextlib
 
 
 class Context:
+    """Class context manager for exception"""
     def __init__(self, exception: type(Exception)):
         self.exception = exception
 
@@ -15,6 +16,7 @@ class Context:
 
 @contextlib.contextmanager
 def cont_manager(exception: type(Exception)):
+    """Generation context manager for exception"""
     try:
         yield
     except exception:
