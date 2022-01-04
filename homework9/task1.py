@@ -18,4 +18,4 @@ def merge_sorted_files(file_list: List[Union[Path, str]]) -> Iterator:
 
         for lines in zip_longest(*files):
             merged_list.extend([*(map(int, lines))])
-        return iter(merged_list)
+        return merged_list
