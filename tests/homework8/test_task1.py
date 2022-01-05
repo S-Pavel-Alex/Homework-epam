@@ -38,5 +38,5 @@ def test_no_file():
 
 def test_bad_key():
     with pytest.raises(ValueError) as er:
-        KeyValueStorage('task_error.txt')
+        KeyValueStorage(file_error)
     assert str(er.value) == '1 is bad key'
