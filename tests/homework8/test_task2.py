@@ -1,9 +1,13 @@
+import os
+
 import pytest
 
 from homework8.task2 import TableData
 
-PRESIDENTS = TableData('example.sqlite', 'presidents')
-BOOKS = TableData('example.sqlite', 'books')
+bd = os.path.join(os.path.dirname(__file__), "example.sqlite")
+
+PRESIDENTS = TableData(bd, 'presidents')
+BOOKS = TableData(bd, 'books')
 
 
 @pytest.mark.parametrize('test_input, expected',

@@ -5,7 +5,7 @@ import pytest
 from homework8.task1 import KeyValueStorage
 
 file1 = os.path.join(os.path.dirname(__file__), "task1.txt")
-
+file_error = os.path.join(os.path.dirname(__file__), "task_error.txt")
 
 K = KeyValueStorage(file1)
 
