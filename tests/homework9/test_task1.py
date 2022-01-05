@@ -1,8 +1,8 @@
-import pytest
 import os
 
-from homework9.task1 import merge_sorted_files
+import pytest
 
+from homework9.task1 import merge_sorted_files
 
 file1 = os.path.join(os.path.dirname(__file__), 'file1.txt')
 file2 = os.path.join(os.path.dirname(__file__), 'file2.txt')
