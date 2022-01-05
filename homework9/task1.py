@@ -1,7 +1,7 @@
 from contextlib import ExitStack
 from itertools import chain
 from pathlib import Path
-from typing import List, Union, Iterator
+from typing import Iterator, List, Union
 
 
 def merge_sorted_files(file_list: List[Union[Path, str]]) -> Iterator:

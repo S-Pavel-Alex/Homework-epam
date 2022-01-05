@@ -1,5 +1,5 @@
 from pathlib import Path
-from typing import Optional, Callable
+from typing import Callable, Optional
 
 
 def count_lines(file_path: Path):
