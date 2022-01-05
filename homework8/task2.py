@@ -30,21 +30,3 @@ class TableData:
     def __iter__(self):
         self.cursor.execute('SELECT * FROM {}'.format(self.table_name))
         return self.cursor
-
-
-presidents = TableData('example.sqlite', 'presidents')
-
-print(len(presidents))
-print(presidents['Yeltsin'])
-print("Yeltsin" in presidents)
-for president in presidents:
-    print(president['name'])
-
-
-books = TableData('example.sqlite', 'books')
-
-print(len(books))
-print(books['1984'])
-print("Farenheit 451" in books)
-for book in books:
-    print(book['name'])

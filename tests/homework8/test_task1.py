@@ -1,9 +1,13 @@
+import os
+
 import pytest
 
 from homework8.task1 import KeyValueStorage
 
-K = KeyValueStorage('task1.txt')
-EMPTY = KeyValueStorage('empty.txt')
+file1 = os.path.join(os.path.dirname(__file__), "task1.txt")
+
+
+K = KeyValueStorage(file1)
 
 
 def test_name_correct():
@@ -36,7 +40,3 @@ def test_bad_key():
     with pytest.raises(ValueError) as er:
         KeyValueStorage('task_error.txt')
     assert str(er.value) == '1 is bad key'
-
-
-def test_empty():
-    assert EMPTY.__dict__ == {'file': 'empty.txt'}
