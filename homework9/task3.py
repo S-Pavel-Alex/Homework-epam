@@ -13,9 +13,9 @@ def count_lines(file_path: Path):
 def count_with_tokenizer(file_path: Path, tokenizer: Callable):
     with open(file_path) as file:
         count = 0
-        for line in file:
-            token = tokenizer(line)
-            count += len(token)
+        lines = file.read()
+        token = tokenizer(lines)
+        count += len(token)
     return count
 
 
