@@ -1,5 +1,5 @@
 from contextlib import ExitStack
-from itertools import zip_longest
+from itertools import chain
 from pathlib import Path
 from typing import List, Union, Iterator
 
@@ -15,7 +15,7 @@ def merge_sorted_files(file_list: List[Union[Path, str]]) -> Iterator:
             stack.enter_context(open(file_name)) for file_name in file_list
         ]
         merged_list = []
-
-        for lines in zip_longest(*files):
-            merged_list.extend([*(map(int, lines))])
-        return merged_list
+        for lines in chain(*files):
+            lines = lines.strip()
+            merged_list.append(int(lines))
+        return sorted(merged_list)

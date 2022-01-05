@@ -10,7 +10,7 @@ def count_lines(file_path: Path):
     return count
 
 
-def count_with_tokenizer(file_path: Path, tokenizer: Optional[Callable]):
+def count_with_tokenizer(file_path: Path, tokenizer: Callable):
     with open(file_path) as file:
         count = 0
         for line in file:
