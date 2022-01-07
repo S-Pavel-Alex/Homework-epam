@@ -8,6 +8,6 @@ r = requests.get(url)
 html = BS(r.content, "html.parser")
 
 
-for el in html.select(".table__tbody"):
-    e = el.find_all('a', title)
-    print(e)
+for el in html.select('tbody > tr'):
+    title = el.select('td > a')
+    print(title[0].text)
