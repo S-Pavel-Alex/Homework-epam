@@ -10,7 +10,7 @@ def unpacking(file_name) -> Iterator:
         file_name (str): file with data
 
     Yields:
-        Iterator: iterator 
+        Iterator: iterator
     """
     with open(file_name) as file:
         yield from (int(item) for item in file)
@@ -27,4 +27,3 @@ def merge_sorted_files(file_list: List[Union[Path, str]]) -> Iterator:
     """
     iterators = (unpacking(file) for file in file_list)
     return iter(merge(*iterators))
-    
