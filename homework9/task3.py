@@ -2,7 +2,7 @@ from pathlib import Path
 from typing import Callable, Optional
 
 
-def count_lines(file_path: Path):
+def count_lines(file_path: Path) -> int:
     with open(file_path) as file:
         count = 0
         for _ in file:
@@ -10,11 +10,11 @@ def count_lines(file_path: Path):
     return count
 
 
-def count_with_tokenizer(file_path: Path, tokenizer: Callable):
+def count_with_tokenizer(file_path: Path, tokenizer: Callable) -> int:
     with open(file_path) as file:
         count = 0
-        lines = file.read()
-        token = tokenizer(lines)
+        text = file.read()
+        token = tokenizer(text)
         count += len(token)
     return count
 
