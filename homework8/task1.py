@@ -7,7 +7,7 @@ class KeyValueStorage:
                     key, value = line.strip().split('=')
                     if not key.isidentifier():
                         raise ValueError(f'{key} is bad key')
-                    if getattr(self, key, None) is None:
+                    if not hasattr(self, key):
                         self.__setattr__(key, value)
         except FileNotFoundError:
             raise FileNotFoundError(f'File {self.file} not founded')

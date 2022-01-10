@@ -1,4 +1,5 @@
 import os
+import sqlite3
 
 import pytest
 
@@ -8,6 +9,7 @@ bd = os.path.join(os.path.dirname(__file__), "example.sqlite")
 
 PRESIDENTS = TableData(bd, 'presidents')
 BOOKS = TableData(bd, 'books')
+NOTABLE = TableData('no_bd.sqlite', 'no')
 
 
 @pytest.mark.parametrize('test_input, expected',
@@ -66,3 +68,9 @@ def test_iterator_books():
         assert book['name'] in [
             book['name'] for book in BOOKS
         ]
+
+
+def test_no_bd():
+    """Test if no base data"""
+    with pytest.raises(sqlite3.Error):
+        NOTABLE['some_name']
