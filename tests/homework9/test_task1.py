@@ -16,13 +16,10 @@ file6 = os.path.join(os.path.dirname(__file__), 'file6.txt')
                          [
                              ([file1, file2], [1, 2, 3, 4, 6]),
                              ([file3, file2], [2, 4, 6]),
-                             ([file4, file2], [-5, -1, 2, 4, 6]),
                              ([file5, file2], [2, 4, 6, 10,
                                                50, 60, 1000]),
                              ([file3, file6], []),
-                             ([file1, file2, file4],
-                              [-5, -1, 1, 2, 3, 4, 6]),
                              ([], [])
                          ])
 def test_merge_sorted_files_correct_different(test_input, expected):
-    assert merge_sorted_files(test_input) == expected
+    assert list(merge_sorted_files(test_input)) == expected
