@@ -17,6 +17,14 @@ def unpacking(file_name) -> Iterator:
 
 
 def merge_sorted_files(file_list: List[Union[Path, str]]) -> Iterator:
+    """Merging sorted files
+
+    Args:
+        file_list (List[Union[Path, str]]): list with files
+
+    Returns:
+        Iterator: iterator
+    """
     iterators = (unpacking(file) for file in file_list)
     return iter(merge(*iterators))
     
