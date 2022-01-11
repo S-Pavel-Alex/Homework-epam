@@ -1,4 +1,4 @@
-from homework11.task2 import Oder, MorningDiscount, ElderDiscount
+from homework11.task2 import ElderDiscount, MorningDiscount, Oder
 
 
 def test_without_discount():
