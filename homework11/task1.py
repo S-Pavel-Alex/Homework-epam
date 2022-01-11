@@ -6,11 +6,3 @@ class SimplifiedEnum(type):
             for key in getattr(cls_instance, cls_key):
                 setattr(cls_instance, key, key)
         return cls_instance
-
-
-class ColorsEnum(metaclass=SimplifiedEnum):
-    __keys = ("RED", "BLUE", "ORANGE", "BLACK")
-
-
-
-
