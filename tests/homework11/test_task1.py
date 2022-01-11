@@ -17,7 +17,7 @@ def test_simplifieldenum_color_correct():
 
 
 def test_simplifieldenum_size_correct():
-    assert ColorsEnum.XL == "XL"
-    assert ColorsEnum.L == "L"
-    assert ColorsEnum.M == "M"
-    assert ColorsEnum.S == "S"
+    assert SizesEnum.XL == "XL"
+    assert SizesEnum.L == "L"
+    assert SizesEnum.M == "M"
+    assert SizesEnum.S == "S"
