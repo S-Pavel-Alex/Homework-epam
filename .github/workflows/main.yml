@@ -16,7 +16,7 @@ jobs:
       - name: Run script
         run: |
           pip install requests
-          pip install flake8 isort pytest pytest-django pytest-pathonpath
+          pip install flake8 isort pytest pytest-django
           pip install freezegun
           ls -la
           flake8 .
