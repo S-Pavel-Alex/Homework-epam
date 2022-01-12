@@ -3,7 +3,7 @@ import sqlite3
 
 import pytest
 
-from homework8.task2 import TableData, DataNotInBase
+from homework8.task2 import DataNotInBase, TableData
 
 bd = os.path.join(os.path.dirname(__file__), "example.sqlite")
 
