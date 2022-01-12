@@ -1,9 +1,10 @@
-from concurrent.futures.process import ProcessPoolExecutor
-from bs4 import BeautifulSoup as BS
-import requests
-from concurrent.futures import ThreadPoolExecutor
 import json
 from collections import namedtuple
+from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures.process import ProcessPoolExecutor
+
+import requests
+from bs4 import BeautifulSoup as BS
 
 
 def dollar_covert():
@@ -45,7 +46,7 @@ def data_companies(lst):
     all_companies_data = []
     with ThreadPoolExecutor() as executor:
         html_all = executor.map(give_html, lst)
-    for html in html_all:    
+    for html in html_all:
         soup = BS(html, 'lxml')
         name = soup.find(class_="price-section__label").text.strip()
         price = soup.find('span',
