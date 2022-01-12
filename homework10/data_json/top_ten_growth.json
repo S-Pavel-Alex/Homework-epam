@@ -1,0 +1,82 @@
+[
+    {
+        "code": "F",
+        "name": "Ford Motor Co.",
+        "price": 1824.44,
+        "P/E": 21.51,
+        "potential profit": 169.0,
+        "growth": 170.02
+    },
+    {
+        "code": "DVN",
+        "name": "Devon Energy Corp.",
+        "price": 3718.19,
+        "P/E": -167.13,
+        "potential profit": 218.0,
+        "growth": 160.47
+    },
+    {
+        "code": "BBWI",
+        "name": "Bath & Body Works",
+        "price": 4374.03,
+        "P/E": 14.17,
+        "potential profit": NaN,
+        "growth": 144.13
+    },
+    {
+        "code": "MRO",
+        "name": "Marathon Oil Corp.",
+        "price": 1394.41,
+        "P/E": -5.6,
+        "potential profit": 164.0,
+        "growth": 142.04
+    },
+    {
+        "code": "FANG",
+        "name": "Diamondback Energy Inc",
+        "price": 9283.92,
+        "P/E": 15.58,
+        "potential profit": 124.0,
+        "growth": 117.73
+    },
+    {
+        "code": "FTNT",
+        "name": "Fortinet Inc",
+        "price": 23907.74,
+        "P/E": 43.03,
+        "potential profit": 159.0,
+        "growth": 112.41
+    },
+    {
+        "code": "NVDA",
+        "name": "NVIDIA Corp.",
+        "price": 20867.01,
+        "P/E": 51.8,
+        "potential profit": 199.0,
+        "growth": 105.22
+    },
+    {
+        "code": "NUE",
+        "name": "Nucor Corp.",
+        "price": 8549.82,
+        "P/E": 15.99,
+        "potential profit": 169.0,
+        "growth": 104.32
+    },
+    {
+        "code": "EXR",
+        "name": "Extra Space Storage Inc.",
+        "price": 15768.57,
+        "P/E": 30.52,
+        "potential profit": 109.0,
+        "growth": 99.76
+    },
+    {
+        "code": "MRNA",
+        "name": "Moderna Inc",
+        "price": 16611.48,
+        "P/E": -59.95,
+        "potential profit": 324.0,
+        "growth": 89.68
+    }
+]

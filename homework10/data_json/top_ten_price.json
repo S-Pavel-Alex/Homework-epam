@@ -1,0 +1,82 @@
+[
+    {
+        "code": "NVR",
+        "name": "NVR Inc.",
+        "price": 414747.4,
+        "P/E": 17.87,
+        "potential profit": 52.0,
+        "growth": 41.64
+    },
+    {
+        "code": "AMZN",
+        "name": "Amazon",
+        "price": 246249.95,
+        "P/E": 79.54,
+        "potential profit": 31.0,
+        "growth": 2.15
+    },
+    {
+        "code": "GOOG",
+        "name": "Alphabet C (ex Google)",
+        "price": 211133.99,
+        "P/E": 30.01,
+        "potential profit": 76.0,
+        "growth": 51.62
+    },
+    {
+        "code": "GOOGL",
+        "name": "Alphabet A (ex Google)",
+        "price": 210809.8,
+        "P/E": 30.0,
+        "potential profit": 76.0,
+        "growth": 52.42
+    },
+    {
+        "code": "BKNG",
+        "name": "Booking Holdings Inc Registered Shs",
+        "price": 181556.93,
+        "P/E": 460.92,
+        "potential profit": 44.0,
+        "growth": 6.71
+    },
+    {
+        "code": "AZO",
+        "name": "AutoZone Inc.",
+        "price": 152974.07,
+        "P/E": 16.27,
+        "potential profit": 90.0,
+        "growth": 65.57
+    },
+    {
+        "code": "MTD",
+        "name": "Mettler-Toledo International Inc.",
+        "price": 116041.12,
+        "P/E": 43.78,
+        "potential profit": 66.0,
+        "growth": 24.65
+    },
+    {
+        "code": "CMG",
+        "name": "Chipotle Mexican Grill Inc.",
+        "price": 115831.7,
+        "P/E": 129.05,
+        "potential profit": 56.0,
+        "growth": 18.38
+    },
+    {
+        "code": "TSLA",
+        "name": "Tesla",
+        "price": 82444.03,
+        "P/E": 299.31,
+        "potential profit": 130.0,
+        "growth": 16.7
+    },
+    {
+        "code": "BLK",
+        "name": "BlackRock Inc.",
+        "price": 65914.53,
+        "P/E": 20.99,
+        "potential profit": 45.0,
+        "growth": 19.49
+    }
+]

@@ -1,0 +1,82 @@
+[
+    {
+        "code": "APA",
+        "name": "APA Corporation Registered Shs",
+        "price": 2433.33,
+        "P/E": -13.09,
+        "potential profit": 136.0,
+        "growth": 73.12
+    },
+    {
+        "code": "AMD",
+        "name": "AMD (Advanced Micro Devices)  Inc.",
+        "price": 10245.32,
+        "P/E": 70.19,
+        "potential profit": 127.0,
+        "growth": 39.56
+    },
+    {
+        "code": "ANET",
+        "name": "Arista Networks Inc",
+        "price": 9912.93,
+        "P/E": 26.22,
+        "potential profit": 127.0,
+        "growth": 79.28
+    },
+    {
+        "code": "ALB",
+        "name": "Albemarle Corp.",
+        "price": 17961.92,
+        "P/E": 35.35,
+        "potential profit": 118.0,
+        "growth": 28.23
+    },
+    {
+        "code": "AZO",
+        "name": "AutoZone Inc.",
+        "price": 152974.07,
+        "P/E": 16.27,
+        "potential profit": 90.0,
+        "growth": 65.57
+    },
+    {
+        "code": "ATVI",
+        "name": "Activision Blizzard Inc.",
+        "price": 4830.14,
+        "P/E": 26.4,
+        "potential profit": 85.0,
+        "growth": -29.86
+    },
+    {
+        "code": "GOOGL",
+        "name": "Alphabet A (ex Google)",
+        "price": 210809.8,
+        "P/E": 30.0,
+        "potential profit": 76.0,
+        "growth": 52.42
+    },
+    {
+        "code": "GOOG",
+        "name": "Alphabet C (ex Google)",
+        "price": 211133.99,
+        "P/E": 30.01,
+        "potential profit": 76.0,
+        "growth": 51.62
+    },
+    {
+        "code": "AAL",
+        "name": "American Airlines Inc",
+        "price": 1378.76,
+        "P/E": -0.81,
+        "potential profit": 75.0,
+        "growth": 20.74
+    },
+    {
+        "code": "ACN",
+        "name": "Accenture plc",
+        "price": 28108.87,
+        "P/E": 32.42,
+        "potential profit": 73.0,
+        "growth": 40.32
+    }
+]
