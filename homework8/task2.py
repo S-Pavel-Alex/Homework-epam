@@ -1,6 +1,10 @@
 import sqlite3 as sq
 
 
+class DataNotInBase(Exception):
+    pass
+
+
 class TableData:
     def __init__(self, database_name, table_name):
         self.database_name = database_name
@@ -24,9 +28,9 @@ class TableData:
         try:
             self.cursor.execute("SELECT * FROM {} WHERE name = "
                                 "'{}'".format(self.table_name, item))
+            return tuple(self.cursor.fetchone())
         except TypeError:
-            print('Not with row')
-        return tuple(self.cursor.fetchone())
+            raise DataNotInBase()
 
     def __contains__(self, item):
         self.cursor.execute("SELECT * FROM {}"

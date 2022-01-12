@@ -3,7 +3,7 @@ import sqlite3
 
 import pytest
 
-from homework8.task2 import TableData
+from homework8.task2 import TableData, DataNotInBase
 
 bd = os.path.join(os.path.dirname(__file__), "example.sqlite")
 
@@ -29,7 +29,7 @@ def test_table_data_row_presidents_correct():
 
 def test_table_data_row_presidents_negative():
     """If name not presidents table"""
-    with pytest.raises(TypeError):
+    with pytest.raises(DataNotInBase):
         PRESIDENTS['Putin']
 
 
@@ -40,7 +40,7 @@ def test_table_data_row_books():
 
 def test_table_data_row_books_negative():
     """If name not book table"""
-    with pytest.raises(TypeError):
+    with pytest.raises(DataNotInBase):
         BOOKS['Harry Potter']
 
 
@@ -49,9 +49,19 @@ def test_table_data_into_correct():
     assert ("Yeltsin" in PRESIDENTS) is True
 
 
+def test_table_data_into_negative():
+    """If name not in presidents table"""
+    assert ("Buba" in PRESIDENTS) is False
+
+
 def test_table_data_into_presidents():
     """If name in books table"""
     assert ("1984" in BOOKS) is True
+
+
+def test_table_data_into_presidents_negative():
+    """If name not in books table"""
+    assert ("198" in BOOKS) is False
 
 
 def test_iterator_president():
