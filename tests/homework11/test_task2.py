@@ -1,16 +1,16 @@
 from homework11.task2 import Oder
 
 
-def morning_discount(order):
-    if order < 5000:
-        return 0.4 * order
-    return 0.5 * order
+def morning_discount(order: Oder):
+    if order.price < 5000:
+        return 0.4 * order.price
+    return 0.5 * order.price
 
 
-def elder_discount(order):
-    if order < 5000:
-        return 0.1 * order
-    return 0.2 * order
+def elder_discount(order: Oder):
+    if order.price < 5000:
+        return 0.1 * order.price
+    return 0.2 * order.price
 
 
 def test_without_discount():

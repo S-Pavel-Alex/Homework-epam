@@ -1,10 +1,10 @@
 class Oder:
-    def __init__(self, price, discount=0):
+    def __init__(self, price, discount=None):
         self.price = price
         self.discount = discount
 
     def final_price(self) -> int:
         """Calculate final price"""
-        if self.discount == 0:
-            return self.price
-        return self.price - self.discount(self.price)
+        if self.discount:
+            return self.price - self.discount(self)
+        return self.price
