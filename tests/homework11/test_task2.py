@@ -1,13 +1,13 @@
 from homework11.task2 import Oder
 
 
-def morning_discount(order: Oder):
+def morning_discount(order: Oder) -> float:
     if order.price < 5000:
         return 0.4 * order.price
     return 0.5 * order.price
 
 
-def elder_discount(order: Oder):
+def elder_discount(order: Oder) -> float:
     if order.price < 5000:
         return 0.1 * order.price
     return 0.2 * order.price
