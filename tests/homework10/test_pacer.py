@@ -1,7 +1,7 @@
 import unittest.mock
 
-from homework10.percer_multi import base_pages, dollar_covert, give_html, \
-    scraping_href
+from homework10.percer_multi import (base_pages, dollar_covert, give_html,
+                                     scraping_href)
 
 HTML_DOLLAR = ('<Valute ID="R01235">'
                '<NumCode>840</NumCode>'
