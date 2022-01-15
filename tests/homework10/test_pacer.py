@@ -1,8 +1,7 @@
 import unittest.mock
-from bs4 import BeautifulSoup
 
 from homework10.percer_multi import dollar_covert, base_pages, scraping_href, \
-    give_html, data_companies
+    give_html
 
 HTML_DOLLAR = ('<Valute ID="R01235">'
                '<NumCode>840</NumCode>'
@@ -70,14 +69,3 @@ def test_give_html():
     with unittest.mock.patch('requests.get') as mock_obj:
         mock_obj().text = 'Hi'
         assert give_html('example.com') == 'Hi'
-
-
-# def test_data_companies():
-#     with unittest.mock.patch('concurrent.futures.ThreadPoolExecutor') as mock_obj:
-#         mock_obj().map = [HTML_FOR_TEST_SCRAPING, ]
-#         assert data_companies(['http://example.c']) == []
-
-
-def test():
-    soup = BeautifulSoup(HTML_FOR_TEST_SCRAPING, 'lxml')
-    assert soup.find(class_="price-section__label").text.strip() == 'A.O. Smith Corp.'
